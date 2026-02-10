@@ -1,0 +1,25 @@
+# Secrets
+.env
+*.key
+
+# Logs
+logs/*.log
+
+# Database
+db/*.db
+
+# OS
+.DS_Store
+*.swp
+
+# Archive
+archive/
+
+# CMMI4: never commit secrets
+.env.*
+*.pem
+.credentials*
+service-account.json
+*.db
+node_modules/
+__pycache__/

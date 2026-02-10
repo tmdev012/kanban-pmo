@@ -1,0 +1,249 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 850">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117"/>
+      <stop offset="100%" style="stop-color:#161b22"/>
+    </linearGradient>
+    <linearGradient id="active" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#238636"/>
+      <stop offset="100%" style="stop-color:#2ea043"/>
+    </linearGradient>
+    <linearGradient id="pending" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6e7681"/>
+      <stop offset="100%" style="stop-color:#484f58"/>
+    </linearGradient>
+    <linearGradient id="wip" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#bf8700"/>
+      <stop offset="100%" style="stop-color:#9e6a03"/>
+    </linearGradient>
+    <linearGradient id="milestone-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#238636"/>
+      <stop offset="30%" style="stop-color:#238636"/>
+      <stop offset="30%" style="stop-color:#21262d"/>
+      <stop offset="100%" style="stop-color:#21262d"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="850" fill="url(#bg)"/>
+
+  <!-- Header -->
+  <text x="450" y="35" text-anchor="middle" fill="#58a6ff" font-family="monospace" font-size="22" font-weight="bold">KANBAN-PMO STATE TRACKER</text>
+  <text x="450" y="55" text-anchor="middle" fill="#8b949e" font-family="monospace" font-size="11">CMMI Level 3 | Docker + Ollama + K8s | Real-time Sync</text>
+
+  <!-- Phase Indicators -->
+  <g id="phase-core">
+    <rect x="30" y="80" width="180" height="30" rx="4" fill="url(#active)" id="core-status"/>
+    <text x="120" y="100" text-anchor="middle" fill="#fff" font-family="monospace" font-size="12" font-weight="bold">CORE: ACTIVE</text>
+  </g>
+  <g id="phase-buildtime">
+    <rect x="230" y="80" width="180" height="30" rx="4" fill="url(#wip)" id="build-status"/>
+    <text x="320" y="100" text-anchor="middle" fill="#fff" font-family="monospace" font-size="12" font-weight="bold">BUILD: WIP</text>
+  </g>
+  <g id="phase-runtime">
+    <rect x="430" y="80" width="180" height="30" rx="4" fill="url(#pending)" id="runtime-status"/>
+    <text x="520" y="100" text-anchor="middle" fill="#fff" font-family="monospace" font-size="12" font-weight="bold">RUNTIME: PENDING</text>
+  </g>
+  <g id="phase-monitor">
+    <rect x="630" y="80" width="180" height="30" rx="4" fill="url(#pending)" id="monitor-status"/>
+    <text x="720" y="100" text-anchor="middle" fill="#fff" font-family="monospace" font-size="12" font-weight="bold">MONITOR: PENDING</text>
+  </g>
+
+  <!-- Labels Section -->
+  <text x="830" y="145" text-anchor="end" fill="#c9d1d9" font-family="monospace" font-size="14" font-weight="bold">LABELS</text>
+  <g id="labels">
+    <rect x="560" y="155" width="70" height="20" rx="10" fill="#238636" id="label-feature"/>
+    <text x="595" y="169" text-anchor="middle" fill="#fff" font-family="monospace" font-size="9">feature</text>
+    <rect x="640" y="155" width="50" height="20" rx="10" fill="#d73a4a" id="label-bug"/>
+    <text x="665" y="169" text-anchor="middle" fill="#fff" font-family="monospace" font-size="9">bug</text>
+    <rect x="700" y="155" width="50" height="20" rx="10" fill="#0075ca" id="label-docs"/>
+    <text x="725" y="169" text-anchor="middle" fill="#fff" font-family="monospace" font-size="9">docs</text>
+    <rect x="760" y="155" width="70" height="20" rx="10" fill="#7057ff" id="label-infra"/>
+    <text x="795" y="169" text-anchor="middle" fill="#fff" font-family="monospace" font-size="9">infra</text>
+    <rect x="560" y="180" width="80" height="20" rx="10" fill="#fbca04" id="label-scope"/>
+    <text x="600" y="194" text-anchor="middle" fill="#000" font-family="monospace" font-size="9">scope-creep</text>
+    <rect x="650" y="180" width="60" height="20" rx="10" fill="#e4e669" id="label-refactor"/>
+    <text x="680" y="194" text-anchor="middle" fill="#000" font-family="monospace" font-size="9">refactor</text>
+    <rect x="720" y="180" width="50" height="20" rx="10" fill="#006b75" id="label-test"/>
+    <text x="745" y="194" text-anchor="middle" fill="#fff" font-family="monospace" font-size="9">test</text>
+    <rect x="780" y="180" width="50" height="20" rx="10" fill="#b60205" id="label-critical"/>
+    <text x="805" y="194" text-anchor="middle" fill="#fff" font-family="monospace" font-size="9">P0</text>
+  </g>
+
+  <!-- Kanban Board -->
+  <text x="50" y="145" fill="#c9d1d9" font-family="monospace" font-size="14" font-weight="bold">KANBAN BOARD</text>
+
+  <!-- Backlog Column -->
+  <rect x="30" y="160" width="125" height="220" rx="6" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+  <text x="92" y="185" text-anchor="middle" fill="#8b949e" font-family="monospace" font-size="11">BACKLOG</text>
+  <rect x="40" y="200" width="105" height="50" rx="4" fill="#161b22" stroke="#484f58" stroke-width="1"/>
+  <text x="92" y="218" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="9" id="backlog-1">Grafana</text>
+  <rect x="45" y="230" width="40" height="14" rx="7" fill="#7057ff"/>
+  <text x="65" y="240" text-anchor="middle" fill="#fff" font-family="monospace" font-size="7">infra</text>
+  <rect x="40" y="260" width="105" height="50" rx="4" fill="#161b22" stroke="#484f58" stroke-width="1"/>
+  <text x="92" y="278" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="9" id="backlog-2">K8s Agents</text>
+  <rect x="45" y="290" width="40" height="14" rx="7" fill="#7057ff"/>
+  <text x="65" y="300" text-anchor="middle" fill="#fff" font-family="monospace" font-size="7">infra</text>
+  <rect x="40" y="320" width="105" height="50" rx="4" fill="#161b22" stroke="#484f58" stroke-width="1"/>
+  <text x="92" y="338" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="9" id="backlog-3">Kafka</text>
+  <rect x="45" y="350" width="40" height="14" rx="7" fill="#238636"/>
+  <text x="65" y="360" text-anchor="middle" fill="#fff" font-family="monospace" font-size="7">feature</text>
+
+  <!-- Open Column -->
+  <rect x="165" y="160" width="125" height="220" rx="6" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+  <text x="227" y="185" text-anchor="middle" fill="#58a6ff" font-family="monospace" font-size="11">OPEN</text>
+  <rect x="175" y="200" width="105" height="50" rx="4" fill="#161b22" stroke="#1f6feb" stroke-width="1"/>
+  <text x="227" y="218" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="9" id="open-1">CMMI Templates</text>
+  <rect x="180" y="230" width="35" height="14" rx="7" fill="#0075ca"/>
+  <text x="197" y="240" text-anchor="middle" fill="#fff" font-family="monospace" font-size="7">docs</text>
+  <rect x="175" y="260" width="105" height="50" rx="4" fill="#161b22" stroke="#1f6feb" stroke-width="1"/>
+  <text x="227" y="278" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="9" id="open-2">Scaffold Scripts</text>
+  <rect x="180" y="290" width="40" height="14" rx="7" fill="#238636"/>
+  <text x="200" y="300" text-anchor="middle" fill="#fff" font-family="monospace" font-size="7">feature</text>
+
+  <!-- WIP Column -->
+  <rect x="300" y="160" width="125" height="220" rx="6" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+  <text x="362" y="185" text-anchor="middle" fill="#d29922" font-family="monospace" font-size="11">WIP</text>
+  <rect x="310" y="200" width="105" height="50" rx="4" fill="#161b22" stroke="#9e6a03" stroke-width="1"/>
+  <text x="362" y="218" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="9" id="wip-1">Git Repo Init</text>
+  <rect x="315" y="230" width="40" height="14" rx="7" fill="#7057ff"/>
+  <text x="335" y="240" text-anchor="middle" fill="#fff" font-family="monospace" font-size="7">infra</text>
+  <rect x="310" y="260" width="105" height="50" rx="4" fill="#161b22" stroke="#9e6a03" stroke-width="1"/>
+  <text x="362" y="278" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="9" id="wip-2">README + SVG</text>
+  <rect x="315" y="290" width="35" height="14" rx="7" fill="#0075ca"/>
+  <text x="332" y="300" text-anchor="middle" fill="#fff" font-family="monospace" font-size="7">docs</text>
+
+  <!-- Closed Column -->
+  <rect x="435" y="160" width="125" height="220" rx="6" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+  <text x="497" y="185" text-anchor="middle" fill="#238636" font-family="monospace" font-size="11">CLOSED</text>
+  <rect x="445" y="200" width="105" height="50" rx="4" fill="#161b22" stroke="#238636" stroke-width="1"/>
+  <text x="497" y="218" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="9" id="closed-1">Dir Structure</text>
+  <rect x="450" y="230" width="40" height="14" rx="7" fill="#7057ff"/>
+  <text x="470" y="240" text-anchor="middle" fill="#fff" font-family="monospace" font-size="7">infra</text>
+  <rect x="445" y="260" width="105" height="50" rx="4" fill="#161b22" stroke="#238636" stroke-width="1"/>
+  <text x="497" y="278" text-anchor="middle" fill="#c9d1d9" font-family="monospace" font-size="9" id="closed-2">GitHub Repo</text>
+  <rect x="450" y="290" width="40" height="14" rx="7" fill="#7057ff"/>
+  <text x="470" y="300" text-anchor="middle" fill="#fff" font-family="monospace" font-size="7">infra</text>
+
+  <!-- Milestones Section -->
+  <text x="50" y="410" fill="#c9d1d9" font-family="monospace" font-size="14" font-weight="bold">MILESTONES</text>
+
+  <!-- Milestone Timeline -->
+  <rect x="30" y="425" width="840" height="80" rx="6" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+
+  <!-- Timeline Line -->
+  <line x1="60" y1="465" x2="840" y2="465" stroke="#484f58" stroke-width="2"/>
+
+  <!-- M1: MVP Core -->
+  <circle cx="120" cy="465" r="12" fill="#238636" stroke="#2ea043" stroke-width="2" id="m1-status"/>
+  <text x="120" y="469" text-anchor="middle" fill="#fff" font-family="monospace" font-size="10" font-weight="bold">1</text>
+  <text x="120" y="445" text-anchor="middle" fill="#238636" font-family="monospace" font-size="9" font-weight="bold">MVP Core</text>
+  <text x="120" y="490" text-anchor="middle" fill="#6e7681" font-family="monospace" font-size="8">Feb 7</text>
+
+  <!-- M2: Scaffold -->
+  <circle cx="260" cy="465" r="12" fill="#bf8700" stroke="#9e6a03" stroke-width="2" id="m2-status"/>
+  <text x="260" y="469" text-anchor="middle" fill="#fff" font-family="monospace" font-size="10" font-weight="bold">2</text>
+  <text x="260" y="445" text-anchor="middle" fill="#bf8700" font-family="monospace" font-size="9" font-weight="bold">Scaffold</text>
+  <text x="260" y="490" text-anchor="middle" fill="#6e7681" font-family="monospace" font-size="8">Feb 14</text>
+
+  <!-- M3: Python CLI -->
+  <circle cx="400" cy="465" r="12" fill="#6e7681" stroke="#484f58" stroke-width="2" id="m3-status"/>
+  <text x="400" y="469" text-anchor="middle" fill="#fff" font-family="monospace" font-size="10" font-weight="bold">3</text>
+  <text x="400" y="445" text-anchor="middle" fill="#6e7681" font-family="monospace" font-size="9" font-weight="bold">Python CLI</text>
+  <text x="400" y="490" text-anchor="middle" fill="#6e7681" font-family="monospace" font-size="8">Feb 21</text>
+
+  <!-- M4: Docker/Ollama -->
+  <circle cx="540" cy="465" r="12" fill="#6e7681" stroke="#484f58" stroke-width="2" id="m4-status"/>
+  <text x="540" y="469" text-anchor="middle" fill="#fff" font-family="monospace" font-size="10" font-weight="bold">4</text>
+  <text x="540" y="445" text-anchor="middle" fill="#6e7681" font-family="monospace" font-size="9" font-weight="bold">Docker+Ollama</text>
+  <text x="540" y="490" text-anchor="middle" fill="#6e7681" font-family="monospace" font-size="8">Feb 28</text>
+
+  <!-- M5: K8s/Grafana -->
+  <circle cx="680" cy="465" r="12" fill="#6e7681" stroke="#484f58" stroke-width="2" id="m5-status"/>
+  <text x="680" y="469" text-anchor="middle" fill="#fff" font-family="monospace" font-size="10" font-weight="bold">5</text>
+  <text x="680" y="445" text-anchor="middle" fill="#6e7681" font-family="monospace" font-size="9" font-weight="bold">K8s/Grafana</text>
+  <text x="680" y="490" text-anchor="middle" fill="#6e7681" font-family="monospace" font-size="8">Mar 7</text>
+
+  <!-- M6: Production -->
+  <circle cx="800" cy="465" r="12" fill="#6e7681" stroke="#484f58" stroke-width="2" id="m6-status"/>
+  <text x="800" y="469" text-anchor="middle" fill="#fff" font-family="monospace" font-size="10" font-weight="bold">6</text>
+  <text x="800" y="445" text-anchor="middle" fill="#6e7681" font-family="monospace" font-size="9" font-weight="bold">Production</text>
+  <text x="800" y="490" text-anchor="middle" fill="#6e7681" font-family="monospace" font-size="8">Mar 14</text>
+
+  <!-- Infrastructure Stack -->
+  <text x="50" y="535" fill="#c9d1d9" font-family="monospace" font-size="14" font-weight="bold">INFRASTRUCTURE STACK</text>
+
+  <!-- Local Layer -->
+  <rect x="30" y="550" width="550" height="50" rx="6" fill="#21262d" stroke="#238636" stroke-width="2"/>
+  <text x="50" y="580" fill="#238636" font-family="monospace" font-size="11" font-weight="bold">LOCAL</text>
+  <rect x="110" y="560" width="70" height="30" rx="4" fill="#0d419d"/>
+  <text x="145" y="580" text-anchor="middle" fill="#fff" font-family="monospace" font-size="10">Docker</text>
+  <rect x="190" y="560" width="70" height="30" rx="4" fill="#7c3aed"/>
+  <text x="225" y="580" text-anchor="middle" fill="#fff" font-family="monospace" font-size="10">Ollama</text>
+  <rect x="270" y="560" width="70" height="30" rx="4" fill="#0369a1"/>
+  <text x="305" y="580" text-anchor="middle" fill="#fff" font-family="monospace" font-size="10">SQLite</text>
+  <rect x="350" y="560" width="70" height="30" rx="4" fill="#65a30d"/>
+  <text x="385" y="580" text-anchor="middle" fill="#fff" font-family="monospace" font-size="10">Bash/SSH</text>
+  <rect x="430" y="560" width="70" height="30" rx="4" fill="#dc2626"/>
+  <text x="465" y="580" text-anchor="middle" fill="#fff" font-family="monospace" font-size="10">Termux</text>
+
+  <!-- CMMI Level Box -->
+  <rect x="600" y="520" width="260" height="150" rx="6" fill="#161b22" stroke="#a371f7" stroke-width="2"/>
+  <text x="730" y="545" text-anchor="middle" fill="#a371f7" font-family="monospace" font-size="12" font-weight="bold">CMMI LEVEL 3</text>
+  <text x="620" y="570" fill="#8b949e" font-family="monospace" font-size="10">Requirements Mgmt</text>
+  <circle cx="830" cy="565" r="6" fill="#238636" id="cmmi-req"/>
+  <text x="620" y="590" fill="#8b949e" font-family="monospace" font-size="10">Project Planning</text>
+  <circle cx="830" cy="585" r="6" fill="#bf8700" id="cmmi-plan"/>
+  <text x="620" y="610" fill="#8b949e" font-family="monospace" font-size="10">Process Definition</text>
+  <circle cx="830" cy="605" r="6" fill="#6e7681" id="cmmi-proc"/>
+  <text x="620" y="630" fill="#8b949e" font-family="monospace" font-size="10">Config Management</text>
+  <circle cx="830" cy="625" r="6" fill="#238636" id="cmmi-cfg"/>
+  <text x="620" y="650" fill="#8b949e" font-family="monospace" font-size="10">Verification</text>
+  <circle cx="830" cy="645" r="6" fill="#6e7681" id="cmmi-ver"/>
+
+  <!-- Sync Arrow -->
+  <line x1="305" y1="610" x2="305" y2="640" stroke="#58a6ff" stroke-width="2" stroke-dasharray="4">
+    <animate attributeName="stroke-dashoffset" from="0" to="8" dur="0.5s" repeatCount="indefinite"/>
+  </line>
+  <polygon points="300,640 310,640 305,650" fill="#58a6ff"/>
+  <text x="325" y="635" fill="#58a6ff" font-family="monospace" font-size="9">SYNC</text>
+
+  <!-- Remote Layer -->
+  <rect x="30" y="660" width="550" height="50" rx="6" fill="#21262d" stroke="#bf8700" stroke-width="2"/>
+  <text x="50" y="690" fill="#bf8700" font-family="monospace" font-size="11" font-weight="bold">REMOTE</text>
+  <rect x="110" y="670" width="60" height="30" rx="4" fill="#326ce5"/>
+  <text x="140" y="690" text-anchor="middle" fill="#fff" font-family="monospace" font-size="10">K8s</text>
+  <rect x="180" y="670" width="70" height="30" rx="4" fill="#e6522c"/>
+  <text x="215" y="690" text-anchor="middle" fill="#fff" font-family="monospace" font-size="10">Grafana</text>
+  <rect x="260" y="670" width="60" height="30" rx="4" fill="#000"/>
+  <text x="290" y="690" text-anchor="middle" fill="#fff" font-family="monospace" font-size="10">Kafka</text>
+  <rect x="330" y="670" width="50" height="30" rx="4" fill="#6366f1"/>
+  <text x="355" y="690" text-anchor="middle" fill="#fff" font-family="monospace" font-size="10">nm8</text>
+  <rect x="390" y="670" width="60" height="30" rx="4" fill="#f97316"/>
+  <text x="420" y="690" text-anchor="middle" fill="#fff" font-family="monospace" font-size="10">GitHub</text>
+  <rect x="460" y="670" width="50" height="30" rx="4" fill="#1f883d"/>
+  <text x="485" y="690" text-anchor="middle" fill="#fff" font-family="monospace" font-size="10">gRPC</text>
+
+  <!-- Progress Bar -->
+  <text x="50" y="745" fill="#c9d1d9" font-family="monospace" font-size="12">MVP PROGRESS</text>
+  <rect x="150" y="730" width="600" height="20" rx="4" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+  <rect x="152" y="732" width="180" height="16" rx="3" fill="url(#active)" id="progress-bar">
+    <animate attributeName="width" from="0" to="180" dur="2s" fill="freeze"/>
+  </rect>
+  <text x="770" y="745" fill="#8b949e" font-family="monospace" font-size="11" id="progress-pct">30%</text>
+
+  <!-- Milestone Legend -->
+  <g id="legend" transform="translate(30, 770)">
+    <circle cx="10" cy="10" r="6" fill="#238636"/>
+    <text x="25" y="14" fill="#8b949e" font-family="monospace" font-size="9">Done</text>
+    <circle cx="80" cy="10" r="6" fill="#bf8700"/>
+    <text x="95" y="14" fill="#8b949e" font-family="monospace" font-size="9">WIP</text>
+    <circle cx="140" cy="10" r="6" fill="#6e7681"/>
+    <text x="155" y="14" fill="#8b949e" font-family="monospace" font-size="9">Pending</text>
+  </g>
+
+  <!-- Footer -->
+  <text x="450" y="810" text-anchor="middle" fill="#484f58" font-family="monospace" font-size="10">Author: tmdev012 | Curator: Claude Opus 4.5 | Updated: 2026-02-07</text>
+  <text x="450" y="830" text-anchor="middle" fill="#30363d" font-family="monospace" font-size="9">kanban-pmo v0.1.0 | github.com/tmdev012/kanban-pmo</text>
+
+</svg>
