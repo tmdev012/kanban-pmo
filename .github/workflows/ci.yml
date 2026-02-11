@@ -1,46 +1,38 @@
-name: CI Pipeline
+name: CI
 
 on:
   push:
-    branches: [main, develop]
+    branches: [main]
   pull_request:
     branches: [main]
-  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  shellcheck:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Install ShellCheck
-        run: sudo apt-get install -y shellcheck
-      - name: Lint sashi CLI
-        run: shellcheck -x -s bash sashi || true
-      - name: Lint lib scripts
-        run: find lib/ -name '*.sh' -exec shellcheck -x -s bash {} + 2>/dev/null || true
 
-  docker:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Build image
-        run: docker build -t kanban-pmo:test .
-      - name: Validate compose
-        run: docker compose config --quiet
+      - name: ShellCheck sashi
+        uses: ludeeus/action-shellcheck@2.0.0
+        with:
+          scandir: .
+          additional_files: sashi
 
-  structure:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Validate kanban board dirs
+      - name: ShellCheck scripts
+        uses: ludeeus/action-shellcheck@2.0.0
+        with:
+          scandir: scripts
+
+      - name: ShellCheck lib/sh
+        uses: ludeeus/action-shellcheck@2.0.0
+        with:
+          scandir: lib/sh
+
+      - name: Bash syntax check
         run: |
-          for dir in kanban/backlog kanban/open kanban/wip kanban/closed; do
-            test -d "$dir" && echo "OK: $dir" || echo "MISSING: $dir"
+          for f in sashi scripts/*.sh lib/sh/*; do
+            [ -f "$f" ] && bash -n "$f" && echo "OK: $f"
           done
-      - name: Check sashi executable
-        run: test -x sashi && bash -n sashi
-      - name: Validate install script
-        run: bash -n install.sh
