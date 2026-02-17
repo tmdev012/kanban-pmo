@@ -1,0 +1,13 @@
+id,enabled,trigger,paths,schedule,cache,lock,revert,gitignore,audit,payload,description
+card.create,inherit,inherit,"kanban/{backlog,open,wip}/TASK-*.md",,inherit,inherit,inherit,,inherit,,Track new card creation
+card.close,inherit,inherit,kanban/closed/TASK-*.md,,inherit,true,inherit,,inherit,"require_checked_criteria,require_docs_reference",Validate closed cards
+card.move,inherit,inherit,kanban/*/TASK-*.md,,inherit,inherit,inherit,,inherit,,Track card column transitions
+sprint.plan,inherit,schedule,,0 8 * * 1,sprint,inherit,inherit,,inherit,,Monday 8am planning
+sprint.retro,inherit,schedule,,0 16 * * 5,sprint,inherit,inherit,,inherit,,Friday 4pm retro
+doc.sync,inherit,inherit,"*.md,kanban/**/*.md,projects/**/*.md",,session,inherit,inherit,,inherit,"check_readme_version,check_milestones",Doc sync
+cred.audit,inherit,"push,pr",*,,inherit,true,inherit,".env,*.pem,*.key",inherit,"scan_tokens:sk-or-|ghp_|gho_|glpat-|AKIA",Credential scan
+model.build,inherit,inherit,"Modelfile*,*/Modelfile*",,session,inherit,inherit,,inherit,"track_from,track_parameters",Model build tracking
+verify.run,inherit,dispatch,,,inherit,inherit,inherit,,inherit,test_id:all,Run VER tests
+git.ignore,inherit,inherit,.gitignore,,session,inherit,inherit,".env,*.pem,*.key,node_modules/",inherit,enforce_patterns,Enforce gitignore
+git.lock,false,dispatch,,,inherit,true,inherit,,inherit,"locked_paths:kanban/closed/*",Patch freeze
+git.revert,false,dispatch,,,inherit,inherit,last,,inherit,target_ref:HEAD~1,Revert to state

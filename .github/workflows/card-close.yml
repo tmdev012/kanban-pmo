@@ -1,0 +1,40 @@
+# Workflow: card-close
+# Prefix: card | Suffix: close
+# Audit: Validates closed cards have documented solutions
+name: card-close
+
+on:
+  push:
+    paths:
+      - 'kanban/closed/TASK-*.md'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-card-close:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate closed cards have docs
+        run: |
+          FAIL=0
+          for card in kanban/closed/TASK-*.md; do
+            [ -f "$card" ] || continue
+            # Must have at least one checked acceptance criterion
+            if ! grep -q '\[x\]' "$card"; then
+              echo "::error file=$card::No acceptance criteria checked — cannot close"
+              FAIL=1
+            fi
+            # Must reference documentation
+            if ! grep -qi 'documented\|changelog\|readme' "$card"; then
+              echo "::warning file=$card::No documentation reference found"
+            fi
+          done
+          exit $FAIL
+
+      - name: Log audit trail
+        run: |
+          CLOSED=$(ls kanban/closed/TASK-*.md 2>/dev/null | wc -l)
+          echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) card-close validated $CLOSED cards" >> kanban/exports/audit.log

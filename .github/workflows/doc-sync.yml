@@ -1,0 +1,45 @@
+# Workflow: doc-sync
+# Prefix: doc | Suffix: sync
+# Audit: Validates documentation stays in sync with code changes
+name: doc-sync
+
+on:
+  push:
+    paths:
+      - '*.md'
+      - 'kanban/**/*.md'
+      - 'projects/**/*.md'
+
+permissions:
+  contents: read
+
+jobs:
+  doc-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate markdown
+        run: |
+          echo "=== Doc Sync Audit ==="
+          WARN=0
+          # Check README has current version
+          if ! grep -q 'v3.1.0\|3\.1\.0' README.md 2>/dev/null; then
+            echo "::warning::README.md may be outdated (no v3.1.0 reference)"
+            WARN=1
+          fi
+          # Check milestones exist
+          if [ ! -f kanban/milestones.md ]; then
+            echo "::warning::kanban/milestones.md missing"
+            WARN=1
+          fi
+          # Check project tracker exists
+          if [ ! -f projects/sashi-v3.1.0/tracker.md ]; then
+            echo "::warning::projects/sashi-v3.1.0/tracker.md missing"
+            WARN=1
+          fi
+          [ $WARN -eq 0 ] && echo "PASS: Documentation in sync"
+
+      - name: Log audit trail
+        run: |
+          echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) doc-sync check completed" >> kanban/exports/audit.log

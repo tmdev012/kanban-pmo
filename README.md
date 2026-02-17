@@ -1,6 +1,6 @@
-# Gazette Support MCP Framework
+# Kanban PMO
 
-> Python-based multi-repo framework with gRPC communication, Ollama/Llama integration, Docker orchestration, and SQLite persistence. Designed for arm64v8/Termux mobile testing environments.
+> Task management and project governance layer. Python-based multi-repo framework with gRPC communication, Ollama/Llama integration, Docker orchestration, and SQLite persistence. Symlinked to ollama-local DB for shared state.
 
 [![Python](https://img.shields.io/badge/python-3.10+-blue)]()
 [![gRPC](https://img.shields.io/badge/gRPC-enabled-green)]()
@@ -33,8 +33,8 @@
 
 ```bash
 # Clone
-git clone git@github.com:tmdev012/gazette-support-mcp-framework.git
-cd gazette-support-mcp-framework
+git clone git@github.com:tmdev012/kanban-pmo.git
+cd kanban-pmo
 
 # Install
 pip install -e .
@@ -106,7 +106,6 @@ gazette-support-mcp-framework/
 │   └── views/
 ├── mcp/                    # Model Context Protocol
 │   ├── claude/
-│   ├── deepseek/
 │   ├── llama/
 │   ├── voice/
 │   └── gmail/
@@ -239,10 +238,62 @@ temperature = 0.7
 
 ---
 
+## Sashi v3.1.0 Integration (2026-02-17)
+
+> Kanban-pmo is now integrated with sashi CLI and ai-orchestrator via shared SQLite DB and file-based board.
+
+### Board Structure
+
+```
+kanban/
+├── backlog/          # 5 cards — completed work pending docs
+├── open/             # 0 cards
+├── wip/              # 7 cards — v3.1.0 remaining tasks
+├── closed/           # 0 cards — only when documented + verified
+├── labels/           # Label definitions
+├── tests/            # 12 verification test cases
+├── exports/          # CSV/JSON board exports
+├── models/           # Data models
+└── views/            # Board views
+```
+
+### Sprint Calendar
+
+- **Cadence:** 1-week sprints (tools shape time)
+- **FY:** 2026-27 (Mar 2026 – Feb 2027)
+- **Total:** 52 sprints
+- **Current:** S00 (pre-season, v3.1.0 build)
+- See: `kanban/milestones.md`
+
+### CLI Access
+
+```bash
+# Via sashi
+sashi kanban board              # Column counts
+sashi kanban state              # Full state (files + DB)
+sashi kanban backlog            # List backlog cards
+
+# Via ai-orchestrator
+ai-orchestrator --kanban board  # Same data, different entry point
+```
+
+### Probe Integration
+
+- `persist-memory-probe/lib/sh/gatekeeper_3_1_0.sh` (formerly ai-orchestrator.sh)
+- Credential gateway: delegates inference to ollama-local, keeps github/sign/remote routes
+- `gatekeeper_3_1_0.sh kanban` delegates to canonical orchestrator
+
+### Project Tracking
+
+- `projects/sashi-v3.1.0/tracker.md` — full task breakdown
+- `kanban/milestones.md` — FY2026-27, 52 weekly sprints
+
+---
+
 ## License
 
 MIT
 
 ---
 
-*Scaffolded with Claude Code - Feb 2026*
+*Scaffolded with Claude Code - Feb 2026 | Last updated: 2026-02-17 | Version: 3.1.0*
