@@ -1,0 +1,35 @@
+# Workflow: card-create
+# Prefix: card | Suffix: create
+# Audit: Tracks new card creation with metadata
+name: card-create
+
+on:
+  push:
+    paths:
+      - 'kanban/backlog/TASK-*.md'
+      - 'kanban/open/TASK-*.md'
+      - 'kanban/wip/TASK-*.md'
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  track-card-create:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Detect new cards
+        id: detect
+        run: |
+          NEW_CARDS=$(git diff --name-only --diff-filter=A HEAD~1 -- 'kanban/*/TASK-*.md' 2>/dev/null || echo "")
+          echo "cards=$NEW_CARDS" >> "$GITHUB_OUTPUT"
+          echo "count=$(echo "$NEW_CARDS" | grep -c 'TASK-' || echo 0)" >> "$GITHUB_OUTPUT"
+
+      - name: Log audit trail
+        if: steps.detect.outputs.count != '0'
+        run: |
+          echo "::notice::card-create: ${{ steps.detect.outputs.count }} new card(s) detected"
+          echo "${{ steps.detect.outputs.cards }}"
+          echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) card-create ${{ steps.detect.outputs.count }} cards" >> kanban/exports/audit.log

@@ -1,0 +1,42 @@
+# Workflow: card-move
+# Prefix: card | Suffix: move
+# Audit: Tracks card transitions between columns
+name: card-move
+
+on:
+  push:
+    paths:
+      - 'kanban/backlog/TASK-*.md'
+      - 'kanban/open/TASK-*.md'
+      - 'kanban/wip/TASK-*.md'
+      - 'kanban/closed/TASK-*.md'
+
+permissions:
+  contents: read
+
+jobs:
+  track-card-move:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Detect moves (file renamed across columns)
+        run: |
+          echo "=== Card Movement Audit ==="
+          git diff --name-status HEAD~1 -- 'kanban/*/TASK-*.md' | while read STATUS OLD NEW; do
+            case "$STATUS" in
+              R*) echo "MOVE: $OLD → $NEW" ;;
+              A)  echo "ADD:  $OLD" ;;
+              D)  echo "DEL:  $OLD" ;;
+              M)  echo "EDIT: $OLD" ;;
+            esac
+          done
+
+      - name: Update board counts
+        run: |
+          echo "backlog: $(ls kanban/backlog/TASK-*.md 2>/dev/null | wc -l)"
+          echo "open:    $(ls kanban/open/TASK-*.md 2>/dev/null | wc -l)"
+          echo "wip:     $(ls kanban/wip/TASK-*.md 2>/dev/null | wc -l)"
+          echo "closed:  $(ls kanban/closed/TASK-*.md 2>/dev/null | wc -l)"

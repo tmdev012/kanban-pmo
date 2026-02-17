@@ -1,0 +1,31 @@
+# Workflow: model-build
+# Prefix: model | Suffix: build
+# Audit: Tracks ollama model creation events
+name: model-build
+
+on:
+  push:
+    paths:
+      - 'Modelfile*'
+      - '*/Modelfile*'
+
+permissions:
+  contents: read
+
+jobs:
+  track-model-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Detect Modelfile changes
+        run: |
+          echo "=== Model Build Audit ==="
+          git diff --name-only HEAD~1 -- 'Modelfile*' '*/Modelfile*' 2>/dev/null | while read f; do
+            echo "CHANGED: $f"
+            grep -i '^FROM\|^PARAMETER\|num_ctx\|num_thread\|temperature' "$f" 2>/dev/null || true
+          done
+
+      - name: Log audit trail
+        run: |
+          echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) model-build triggered" >> kanban/exports/audit.log

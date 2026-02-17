@@ -1,0 +1,38 @@
+# Workflow: sprint-plan
+# Prefix: sprint | Suffix: plan
+# Audit: Weekly sprint planning checkpoint
+name: sprint-plan
+
+on:
+  schedule:
+    - cron: '0 8 * * 1'  # Every Monday 8am UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  sprint-plan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Sprint status snapshot
+        run: |
+          echo "=== Sprint Plan — $(date +%Y-%m-%d) ==="
+          echo ""
+          echo "BACKLOG: $(ls kanban/backlog/TASK-*.md 2>/dev/null | wc -l) cards"
+          echo "OPEN:    $(ls kanban/open/TASK-*.md 2>/dev/null | wc -l) cards"
+          echo "WIP:     $(ls kanban/wip/TASK-*.md 2>/dev/null | wc -l) cards"
+          echo "CLOSED:  $(ls kanban/closed/TASK-*.md 2>/dev/null | wc -l) cards"
+          echo "TESTS:   $(ls kanban/tests/VER-*.md 2>/dev/null | wc -l) cases"
+          echo ""
+          echo "--- WIP Cards ---"
+          for card in kanban/wip/TASK-*.md; do
+            [ -f "$card" ] && head -1 "$card" | sed 's/^# //'
+          done
+
+      - name: Log audit trail
+        run: |
+          echo "$(date -u +%Y-%m-%dT%H:%M:%SZ) sprint-plan snapshot taken" >> kanban/exports/audit.log
