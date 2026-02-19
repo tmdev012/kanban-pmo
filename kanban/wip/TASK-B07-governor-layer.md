@@ -1,6 +1,6 @@
 # TASK-B07: kanban-pmo Governor Layer — File-Write Authority
 
-- **Status:** backlog
+- **Status:** wip
 - **Labels:** infra, kanban, priority:high
 - **Parent:** TASK-B06 (T1 of 5)
 - **Assignee:** tmdev012
@@ -17,10 +17,10 @@ only authorised surface for writing `.env`, `.gitignore`, and repo metadata.
 
 ## Deliverables
 
-- [ ] `config/repos.yml` — registry: name, path, remote, branch, env, gitignore, status, env_stage
-- [ ] `lib/py/governor.py` — load/save registry, write_file primitive, add/update/list repos
-- [ ] `lib/py/gitignore_manager.py` — load profiles, apply/merge rules per repo
-- [ ] `lib/py/env_manager.py` — load templates, set keys, apply to any registered repo
+- [x] `config/repos.yml` — registry: name, path, remote, branch, env, gitignore, status, env_stage
+- [x] `lib/py/governor.py` — load/save registry, write_file primitive, add/update/list repos
+- [x] `lib/py/gitignore_manager.py` — load profiles, apply/merge rules per repo
+- [x] `lib/py/env_manager.py` — load templates, set keys, apply to any registered repo
 
 ## Acceptance Criteria
 
