@@ -7,7 +7,7 @@ Version: 1.0.0 | Created: 2026-02-19
 import re
 from pathlib import Path
 from typing import Optional
-from governor import write_file, get_repo
+from .governor import write_file, get_repo
 
 TEMPLATES_DIR = Path(__file__).parent.parent.parent / "config" / "env_templates"
 

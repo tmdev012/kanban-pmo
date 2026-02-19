@@ -1,6 +1,6 @@
 # TASK-B07: kanban-pmo Governor Layer — File-Write Authority
 
-- **Status:** wip
+- **Status:** closed
 - **Labels:** infra, kanban, priority:high
 - **Parent:** TASK-B06 (T1 of 5)
 - **Assignee:** tmdev012
@@ -24,11 +24,22 @@ only authorised surface for writing `.env`, `.gitignore`, and repo metadata.
 
 ## Acceptance Criteria
 
-- [ ] `governor.write_file("ollama-local", ".env", content)` writes to ~/ollama-local/.env
-- [ ] `governor.list_repos(status="active")` returns all active repos
-- [ ] `gitignore_manager.merge_rules("ollama-local", ["*.pyc"])` appends without duplicates
-- [ ] `env_manager.set_key("ollama-local", "OFFLINE_MODE", "true")` sets key in .env
+- [x] `governor.write_file("ollama-local", ".env", content)` writes to ~/ollama-local/.env
+- [x] `governor.list_repos(status="active")` returns all active repos
+- [x] `gitignore_manager.merge_rules("ollama-local", ["*.pyc"])` appends without duplicates
+- [x] `env_manager.set_key("ollama-local", "OFFLINE_MODE", "true")` sets key in .env
+
+## Evidence
+
+```
+$ python3 -c "from lib.py.governor import write_file; ..."
+AC1 write_file: /tmp/tmpzr46yytm/.env — PASS
+AC2 list_repos(active): ['kanban-pmo', 'ollama-local', 'persist-memory-probe', 'ollama-telemetry', 'football-telemetry', 'portfolio-dashboard'] — PASS
+AC3 merge_rules no-dup: PASS
+AC4 set_key OFFLINE_MODE=true: PASS
+Ran: 2026-02-19 | Exit: 0
+```
 
 ---
 
-*Card created: 2026-02-19 | Sub-task: B06-T1*
+*Card created: 2026-02-19 | Closed: 2026-02-19 | Sub-task: B06-T1*
