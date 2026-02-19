@@ -9,7 +9,23 @@
 
 ---
 
+## Manifesto
+
+> Documentation is not a description of the system. It IS the system.
+
+See: [`docs/MANIFESTO.md`](docs/MANIFESTO.md) — Core principles, BDPM model, intellectual lineage, and anti-patterns.
+
+---
+
 ## Architecture
+
+### BDPM Governance Model
+
+![BDPM Swimlane](docs/diagrams/bdpm-swimlanes.svg)
+
+> 4-layer governance: **B**usiness (kanban intake, sprint planning) → **D**evelopment (git, model build, test, smart-push) → **P**roduction (gRPC dispatch, ollama inference, file write, DB log) → **M**onitoring (cred audit, health check, doc sync, CMMI compliance). Cross-lane arrows show event triggers between layers.
+
+### Gazette Architecture
 
 ![Gazette Architecture](docs/diagrams/gazette-architecture.svg)
 
@@ -19,12 +35,12 @@
 
 | Component | Description | Status |
 |-----------|-------------|--------|
-| **CLI** | `gazette` command replacing bash aliases | Backlog |
-| **API** | FastAPI with rate limiting | Backlog |
-| **PAT** | Personal Access Token management | Backlog |
-| **SmartDoc** | Document generation with anonymization | Backlog |
-| **Kanban** | Task board with CSV/JSON/Docker export | Backlog |
-| **gRPC** | Multi-repo communication | Backlog |
+| **CLI** | `gazette` command replacing bash aliases | WIP |
+| **API** | FastAPI with rate limiting | WIP |
+| **PAT** | Personal Access Token management | WIP |
+| **SmartDoc** | Document generation with anonymization | WIP |
+| **Kanban** | Task board with CSV/JSON/Docker export | WIP |
+| **gRPC** | Multi-repo communication | WIP |
 | **Training** | Llama 3.2 fine-tuning on terminal dialogs | Backlog |
 
 ---
