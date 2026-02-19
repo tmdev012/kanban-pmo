@@ -1,0 +1,298 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 780">
+  <defs>
+    <filter id="shadow">
+      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arr-cyan" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#56d4dd"/>
+    </marker>
+    <marker id="arr-green" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3fb950"/>
+    </marker>
+    <marker id="arr-purple" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#a371f7"/>
+    </marker>
+    <marker id="arr-gold" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#d29922"/>
+    </marker>
+    <marker id="arr-dim" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#484f58"/>
+    </marker>
+  </defs>
+  <style>
+    @keyframes flow { 0% { stroke-dashoffset: 20; } 100% { stroke-dashoffset: 0; } }
+    .flow { stroke-dasharray: 8 4; animation: flow 1.2s linear infinite; }
+    .node:hover { filter: url(#glow); cursor: pointer; }
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  </style>
+
+  <!-- Background -->
+  <rect width="1100" height="780" rx="12" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="550" y="38" text-anchor="middle" font-size="20" font-weight="bold" fill="#e6edf3">Three-Repo Ecosystem Architecture</text>
+  <text x="550" y="58" text-anchor="middle" font-size="12" fill="#8b949e">ollama-local (workhorse) • kanban-pmo (governor) • persist-memory-probe (credential layer)</text>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- REPO 1: ollama-local (LEFT, CYAN) -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <rect x="30" y="80" width="320" height="560" rx="10" fill="#161b22" stroke="#56d4dd" stroke-width="2"/>
+  <rect x="30" y="80" width="320" height="36" rx="10" fill="#56d4dd" fill-opacity="0.2"/>
+  <text x="190" y="103" text-anchor="middle" font-size="14" font-weight="bold" fill="#56d4dd">ollama-local</text>
+  <text x="190" y="118" text-anchor="middle" font-size="9" fill="#56d4dd" fill-opacity="0.7">offline workhorse • inference engine</text>
+
+  <!-- sashi CLI -->
+  <g class="node">
+    <rect x="50" y="130" width="280" height="64" rx="8" fill="#21262d" stroke="#56d4dd" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="190" y="150" text-anchor="middle" font-size="12" font-weight="bold" fill="#56d4dd">sashi CLI v3.1.0</text>
+    <text x="190" y="165" text-anchor="middle" font-size="9" fill="#8b949e">ask • code • chat • 8b • kanban • write</text>
+    <text x="190" y="180" text-anchor="middle" font-size="8" fill="#484f58">~/ollama-local/sashi  |  aliases: s, s8b, skanban</text>
+  </g>
+
+  <!-- ai-orchestrator -->
+  <g class="node">
+    <rect x="50" y="210" width="280" height="64" rx="8" fill="#21262d" stroke="#56d4dd" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="190" y="230" text-anchor="middle" font-size="12" font-weight="bold" fill="#56d4dd">ai-orchestrator v3.1.0</text>
+    <text x="190" y="245" text-anchor="middle" font-size="9" fill="#8b949e">--ask • --kanban • --write • --model 8b</text>
+    <text x="190" y="260" text-anchor="middle" font-size="8" fill="#484f58">mcp/llama/tools/ai-orchestrator</text>
+  </g>
+
+  <!-- Modelfiles -->
+  <g class="node">
+    <rect x="50" y="290" width="134" height="64" rx="8" fill="#21262d" stroke="#56d4dd" stroke-width="1.2" filter="url(#shadow)"/>
+    <text x="117" y="313" text-anchor="middle" font-size="11" font-weight="bold" fill="#56d4dd">Modelfile.fast</text>
+    <text x="117" y="328" text-anchor="middle" font-size="9" fill="#8b949e">llama3.2 3B</text>
+    <text x="117" y="343" text-anchor="middle" font-size="8" fill="#484f58">~4.0 tok/s</text>
+  </g>
+  <g class="node">
+    <rect x="196" y="290" width="134" height="64" rx="8" fill="#21262d" stroke="#56d4dd" stroke-width="1.2" filter="url(#shadow)"/>
+    <text x="263" y="313" text-anchor="middle" font-size="11" font-weight="bold" fill="#56d4dd">Modelfile.8b</text>
+    <text x="263" y="328" text-anchor="middle" font-size="9" fill="#8b949e">llama3.1:8b</text>
+    <text x="263" y="343" text-anchor="middle" font-size="8" fill="#484f58">~3.7 tok/s • ctx 4096</text>
+  </g>
+
+  <!-- smart-push -->
+  <g class="node">
+    <rect x="50" y="370" width="280" height="48" rx="8" fill="#21262d" stroke="#3fb950" stroke-width="1.2" filter="url(#shadow)"/>
+    <text x="190" y="390" text-anchor="middle" font-size="11" font-weight="bold" fill="#3fb950">smart-push.sh (424L)</text>
+    <text x="190" y="408" text-anchor="middle" font-size="8" fill="#484f58">sp / ship / gpp  |  commit + tag + SQLite log</text>
+  </g>
+
+  <!-- banner.sh + aliases.sh -->
+  <g class="node">
+    <rect x="50" y="434" width="134" height="48" rx="8" fill="#21262d" stroke="#56d4dd" stroke-width="1" filter="url(#shadow)"/>
+    <text x="117" y="454" text-anchor="middle" font-size="10" font-weight="bold" fill="#56d4dd">banner.sh</text>
+    <text x="117" y="471" text-anchor="middle" font-size="8" fill="#484f58">sashi_banner()</text>
+  </g>
+  <g class="node">
+    <rect x="196" y="434" width="134" height="48" rx="8" fill="#21262d" stroke="#56d4dd" stroke-width="1" filter="url(#shadow)"/>
+    <text x="263" y="454" text-anchor="middle" font-size="10" font-weight="bold" fill="#56d4dd">aliases.sh</text>
+    <text x="263" y="471" text-anchor="middle" font-size="8" fill="#484f58">242L  •  all shell aliases</text>
+  </g>
+
+  <!-- SQLite DB -->
+  <g class="node">
+    <rect x="50" y="498" width="280" height="48" rx="8" fill="#21262d" stroke="#d29922" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="190" y="519" text-anchor="middle" font-size="11" font-weight="bold" fill="#d29922">history.db (SQLite WAL)</text>
+    <text x="190" y="535" text-anchor="middle" font-size="8" fill="#484f58">10 tables • 27 indexes • shared by all 3 repos</text>
+  </g>
+
+  <!-- .env -->
+  <g class="node">
+    <rect x="50" y="562" width="280" height="48" rx="8" fill="#21262d" stroke="#3fb950" stroke-width="1" filter="url(#shadow)"/>
+    <text x="190" y="582" text-anchor="middle" font-size="10" font-weight="bold" fill="#3fb950">.env</text>
+    <text x="190" y="598" text-anchor="middle" font-size="8" fill="#484f58">LOCAL_MODEL=llama3.2 • OFFLINE_MODE=true • KANBAN_PMO_DIR</text>
+  </g>
+
+  <!-- ollama run label -->
+  <rect x="50" y="624" width="280" height="32" rx="6" fill="#388bfd" fill-opacity="0.1" stroke="#388bfd" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="190" y="644" text-anchor="middle" font-size="10" fill="#388bfd">ollama run (native streaming) — num_thread 2 — CPU-only</text>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- REPO 2: kanban-pmo (CENTER, PURPLE) -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <rect x="390" y="80" width="320" height="560" rx="10" fill="#161b22" stroke="#a371f7" stroke-width="2"/>
+  <rect x="390" y="80" width="320" height="36" rx="10" fill="#a371f7" fill-opacity="0.2"/>
+  <text x="550" y="103" text-anchor="middle" font-size="14" font-weight="bold" fill="#a371f7">kanban-pmo</text>
+  <text x="550" y="118" text-anchor="middle" font-size="9" fill="#a371f7" fill-opacity="0.7">governor (CFO) • cross-repo authority</text>
+
+  <!-- governor.py -->
+  <g class="node">
+    <rect x="410" y="130" width="280" height="64" rx="8" fill="#21262d" stroke="#a371f7" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="550" y="150" text-anchor="middle" font-size="12" font-weight="bold" fill="#a371f7">governor.py</text>
+    <text x="550" y="165" text-anchor="middle" font-size="9" fill="#8b949e">repo registry • file-write authority</text>
+    <text x="550" y="180" text-anchor="middle" font-size="8" fill="#484f58">lib/py/governor.py  |  add_repo(), write_file()</text>
+  </g>
+
+  <!-- gRPC server -->
+  <g class="node">
+    <rect x="410" y="210" width="280" height="64" rx="8" fill="#21262d" stroke="#a371f7" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="550" y="230" text-anchor="middle" font-size="12" font-weight="bold" fill="#a371f7">grpc_server.py</text>
+    <text x="550" y="245" text-anchor="middle" font-size="9" fill="#8b949e">RepoRegistry • FileWrite • IssueEvent • ProbeSync</text>
+    <text x="550" y="260" text-anchor="middle" font-size="8" fill="#484f58">server/grpc_server.py  |  :50051</text>
+  </g>
+
+  <!-- repos.yml + proto -->
+  <g class="node">
+    <rect x="410" y="290" width="134" height="64" rx="8" fill="#21262d" stroke="#a371f7" stroke-width="1.2" filter="url(#shadow)"/>
+    <text x="477" y="313" text-anchor="middle" font-size="11" font-weight="bold" fill="#a371f7">repos.yml</text>
+    <text x="477" y="328" text-anchor="middle" font-size="9" fill="#8b949e">6/21 repos</text>
+    <text x="477" y="343" text-anchor="middle" font-size="8" fill="#484f58">config/repos.yml</text>
+  </g>
+  <g class="node">
+    <rect x="556" y="290" width="134" height="64" rx="8" fill="#21262d" stroke="#a371f7" stroke-width="1.2" filter="url(#shadow)"/>
+    <text x="623" y="313" text-anchor="middle" font-size="11" font-weight="bold" fill="#a371f7">kanban.proto</text>
+    <text x="623" y="328" text-anchor="middle" font-size="9" fill="#8b949e">4 services</text>
+    <text x="623" y="343" text-anchor="middle" font-size="8" fill="#484f58">proto/kanban.proto</text>
+  </g>
+
+  <!-- Kanban board -->
+  <g class="node">
+    <rect x="410" y="370" width="280" height="48" rx="8" fill="#21262d" stroke="#a371f7" stroke-width="1.2" filter="url(#shadow)"/>
+    <text x="550" y="390" text-anchor="middle" font-size="11" font-weight="bold" fill="#a371f7">Kanban Board</text>
+    <text x="550" y="408" text-anchor="middle" font-size="8" fill="#484f58">backlog(7) • open(0) • wip(7) • closed(3) • tests(12)</text>
+  </g>
+
+  <!-- env_manager + gitignore -->
+  <g class="node">
+    <rect x="410" y="434" width="134" height="48" rx="8" fill="#21262d" stroke="#a371f7" stroke-width="1" filter="url(#shadow)"/>
+    <text x="477" y="454" text-anchor="middle" font-size="10" font-weight="bold" fill="#a371f7">env_manager</text>
+    <text x="477" y="471" text-anchor="middle" font-size="8" fill="#484f58">apply templates</text>
+  </g>
+  <g class="node">
+    <rect x="556" y="434" width="134" height="48" rx="8" fill="#21262d" stroke="#a371f7" stroke-width="1" filter="url(#shadow)"/>
+    <text x="623" y="450" text-anchor="middle" font-size="10" font-weight="bold" fill="#a371f7">gitignore</text>
+    <text x="623" y="463" text-anchor="middle" font-size="9" fill="#a371f7">_manager</text>
+    <text x="623" y="476" text-anchor="middle" font-size="8" fill="#484f58">python/node profiles</text>
+  </g>
+
+  <!-- milestones -->
+  <g class="node">
+    <rect x="410" y="498" width="280" height="48" rx="8" fill="#21262d" stroke="#d29922" stroke-width="1" filter="url(#shadow)"/>
+    <text x="550" y="519" text-anchor="middle" font-size="11" font-weight="bold" fill="#d29922">milestones.md</text>
+    <text x="550" y="535" text-anchor="middle" font-size="8" fill="#484f58">52 sprints FY2026-27  |  S00 pre-season → S01 Mar 08</text>
+  </g>
+
+  <!-- MANIFESTO -->
+  <g class="node">
+    <rect x="410" y="562" width="280" height="48" rx="8" fill="#21262d" stroke="#a371f7" stroke-width="1" filter="url(#shadow)"/>
+    <text x="550" y="582" text-anchor="middle" font-size="10" font-weight="bold" fill="#a371f7">MANIFESTO: "Documentation IS the system"</text>
+    <text x="550" y="598" text-anchor="middle" font-size="8" fill="#484f58">BDPM model • schema-first • no cron, no curl, gRPC only</text>
+  </g>
+
+  <!-- db symlink -->
+  <rect x="410" y="624" width="280" height="32" rx="6" fill="#d29922" fill-opacity="0.1" stroke="#d29922" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="550" y="644" text-anchor="middle" font-size="10" fill="#d29922">db/sashi_history.db → symlink → ollama-local/db/history.db</text>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- REPO 3: persist-memory-probe (RIGHT, GOLD) -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <rect x="750" y="80" width="320" height="560" rx="10" fill="#161b22" stroke="#d29922" stroke-width="2"/>
+  <rect x="750" y="80" width="320" height="36" rx="10" fill="#d29922" fill-opacity="0.2"/>
+  <text x="910" y="103" text-anchor="middle" font-size="14" font-weight="bold" fill="#d29922">persist-memory-probe</text>
+  <text x="910" y="118" text-anchor="middle" font-size="9" fill="#d29922" fill-opacity="0.7">credential layer • cross-session memory</text>
+
+  <!-- gatekeeper -->
+  <g class="node">
+    <rect x="770" y="130" width="280" height="64" rx="8" fill="#21262d" stroke="#d29922" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="910" y="150" text-anchor="middle" font-size="12" font-weight="bold" fill="#d29922">gatekeeper_3_1_0.sh</text>
+    <text x="910" y="165" text-anchor="middle" font-size="9" fill="#8b949e">github • sign • remote • ollama → delegate</text>
+    <text x="910" y="180" text-anchor="middle" font-size="8" fill="#484f58">lib/sh/gatekeeper_3_1_0.sh  |  v3.1.0</text>
+  </g>
+
+  <!-- repo_tracker + fs_writer -->
+  <g class="node">
+    <rect x="770" y="210" width="134" height="64" rx="8" fill="#21262d" stroke="#d29922" stroke-width="1.2" filter="url(#shadow)"/>
+    <text x="837" y="232" text-anchor="middle" font-size="10" font-weight="bold" fill="#d29922">repo_tracker.py</text>
+    <text x="837" y="247" text-anchor="middle" font-size="9" fill="#8b949e">detect local repos</text>
+    <text x="837" y="262" text-anchor="middle" font-size="8" fill="#484f58">→ governor events</text>
+  </g>
+  <g class="node">
+    <rect x="916" y="210" width="134" height="64" rx="8" fill="#21262d" stroke="#d29922" stroke-width="1.2" filter="url(#shadow)"/>
+    <text x="983" y="232" text-anchor="middle" font-size="10" font-weight="bold" fill="#d29922">fs_writer.py</text>
+    <text x="983" y="247" text-anchor="middle" font-size="9" fill="#8b949e">receive write cmds</text>
+    <text x="983" y="262" text-anchor="middle" font-size="8" fill="#484f58">from kanban-pmo</text>
+  </g>
+
+  <!-- db_sync + context_injector -->
+  <g class="node">
+    <rect x="770" y="290" width="134" height="64" rx="8" fill="#21262d" stroke="#d29922" stroke-width="1.2" filter="url(#shadow)"/>
+    <text x="837" y="312" text-anchor="middle" font-size="10" font-weight="bold" fill="#d29922">db_sync.py</text>
+    <text x="837" y="327" text-anchor="middle" font-size="9" fill="#8b949e">sync DB snapshots</text>
+    <text x="837" y="342" text-anchor="middle" font-size="8" fill="#484f58">kanban-pmo → probe</text>
+  </g>
+  <g class="node">
+    <rect x="916" y="290" width="134" height="64" rx="8" fill="#21262d" stroke="#d29922" stroke-width="1.2" filter="url(#shadow)"/>
+    <text x="983" y="312" text-anchor="middle" font-size="10" font-weight="bold" fill="#d29922">context_injector</text>
+    <text x="983" y="327" text-anchor="middle" font-size="9" fill="#8b949e">session context</text>
+    <text x="983" y="342" text-anchor="middle" font-size="8" fill="#484f58">prompt injection</text>
+  </g>
+
+  <!-- probe.proto -->
+  <g class="node">
+    <rect x="770" y="370" width="280" height="48" rx="8" fill="#21262d" stroke="#d29922" stroke-width="1.2" filter="url(#shadow)"/>
+    <text x="910" y="390" text-anchor="middle" font-size="11" font-weight="bold" fill="#d29922">probe.proto (WIP)</text>
+    <text x="910" y="408" text-anchor="middle" font-size="8" fill="#484f58">webhooks/grpc/probe.proto  |  wires to ProbeSync RPC</text>
+  </g>
+
+  <!-- credential_audit -->
+  <g class="node">
+    <rect x="770" y="434" width="280" height="48" rx="8" fill="#21262d" stroke="#d29922" stroke-width="1.2" filter="url(#shadow)"/>
+    <text x="910" y="454" text-anchor="middle" font-size="11" font-weight="bold" fill="#d29922">credential_audit table</text>
+    <text x="910" y="471" text-anchor="middle" font-size="8" fill="#484f58">SSH + PAT + GPG  |  usage_count + last_used</text>
+  </g>
+
+  <!-- train_credentials -->
+  <g class="node">
+    <rect x="770" y="498" width="280" height="48" rx="8" fill="#21262d" stroke="#d29922" stroke-width="1.2" filter="url(#shadow)"/>
+    <text x="910" y="519" text-anchor="middle" font-size="11" font-weight="bold" fill="#d29922">train_credentials.py</text>
+    <text x="910" y="535" text-anchor="middle" font-size="8" fill="#484f58">Llama fine-tune from terminal dialogs (backlog)</text>
+  </g>
+
+  <!-- gh_api -->
+  <g class="node">
+    <rect x="770" y="562" width="280" height="48" rx="8" fill="#21262d" stroke="#3fb950" stroke-width="1" filter="url(#shadow)"/>
+    <text x="910" y="582" text-anchor="middle" font-size="11" font-weight="bold" fill="#3fb950">gh_api.py</text>
+    <text x="910" y="598" text-anchor="middle" font-size="8" fill="#484f58">GitHub API via PAT  |  issues, repos, rate limits</text>
+  </g>
+
+  <!-- db symlink -->
+  <rect x="770" y="624" width="280" height="32" rx="6" fill="#d29922" fill-opacity="0.1" stroke="#d29922" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="910" y="644" text-anchor="middle" font-size="10" fill="#d29922">db/sashi_history.db → symlink → ollama-local/db/history.db</text>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- INTER-REPO CONNECTIONS -->
+  <!-- ══════════════════════════════════════════════════════ -->
+
+  <!-- ollama-local sashi → kanban-pmo kanban board -->
+  <line x1="350" y1="428" x2="408" y2="428" class="flow" stroke="#a371f7" stroke-width="2" marker-end="url(#arr-purple)"/>
+  <text x="380" y="423" text-anchor="middle" font-size="8" fill="#a371f7">kanban</text>
+
+  <!-- ollama-local sashi → kanban-pmo via gRPC -->
+  <line x1="350" y1="380" x2="408" y2="230" class="flow" stroke="#a371f7" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arr-purple)"/>
+  <text x="370" y="300" font-size="8" fill="#a371f7" font-style="italic">gRPC (B06)</text>
+
+  <!-- kanban-pmo → probe: ProbeSync -->
+  <line x1="710" y1="245" x2="768" y2="245" class="flow" stroke="#d29922" stroke-width="2" marker-end="url(#arr-gold)"/>
+  <text x="739" y="240" text-anchor="middle" font-size="8" fill="#d29922">ProbeSync</text>
+
+  <!-- kanban-pmo governor → probe fs_writer -->
+  <line x1="710" y1="163" x2="768" y2="242" class="flow" stroke="#d29922" stroke-width="1.5" stroke-dasharray="4 4" marker-end="url(#arr-gold)"/>
+  <text x="730" y="190" font-size="8" fill="#d29922" font-style="italic">FileWrite</text>
+
+  <!-- probe gatekeeper → ollama-local ai-orchestrator (delegate) -->
+  <path d="M 910 194 Q 910 170 550 170 Q 190 170 190 208" fill="none" class="flow" stroke="#56d4dd" stroke-width="1.5" marker-end="url(#arr-cyan)"/>
+  <text x="550" y="166" text-anchor="middle" font-size="8" fill="#56d4dd">cmd_ollama() delegates → ai-orchestrator</text>
+
+  <!-- ══════════════════════════════════════════════════════ -->
+  <!-- FOOTER -->
+  <!-- ══════════════════════════════════════════════════════ -->
+  <line x1="30" y1="700" x2="1070" y2="700" stroke="#21262d" stroke-width="1"/>
+  <text x="550" y="724" text-anchor="middle" font-size="10" fill="#8b949e">i7-6500U 2C/4T • 7.6GB RAM • 8GB swap • CPU-only • OFFLINE_MODE=true • llama3.2 3B + llama3.1:8b</text>
+  <text x="550" y="742" text-anchor="middle" font-size="9" fill="#484f58">Updated 2026-02-19 • github.com:tmdev012/{ollama-local,kanban-pmo,persist-memory-probe}</text>
+
+</svg>
