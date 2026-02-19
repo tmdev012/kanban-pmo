@@ -1,0 +1,221 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 720">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#388bfd"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3fb950"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#a371f7"/>
+    </marker>
+    <marker id="arrow-gold" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#d29922"/>
+    </marker>
+    <marker id="arrow-cross" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#8b949e"/>
+    </marker>
+  </defs>
+
+  <style>
+    @keyframes flowRight {
+      0% { stroke-dashoffset: 20; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes flowDown {
+      0% { stroke-dashoffset: 20; }
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.7; }
+    }
+    .flow-h { stroke-dasharray: 8 4; animation: flowRight 1s linear infinite; }
+    .flow-v { stroke-dasharray: 8 4; animation: flowDown 1.2s linear infinite; }
+    .node:hover { filter: url(#glow); cursor: pointer; }
+    .pulse { animation: pulse 2.5s ease-in-out infinite; }
+    text { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
+  </style>
+
+  <!-- Background -->
+  <rect width="1100" height="720" rx="12" fill="#0d1117"/>
+
+  <!-- Title -->
+  <text x="550" y="38" text-anchor="middle" font-size="20" font-weight="bold" fill="#e6edf3">BDPM Governance Model — 4-Layer Swimlane</text>
+  <text x="550" y="58" text-anchor="middle" font-size="12" fill="#8b949e">kanban-pmo v3.1.0 | Business → Development → Production → Monitoring</text>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- SWIMLANE 1: BUSINESS (Blue) -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <rect x="30" y="80" width="1040" height="130" rx="8" fill="#161b22" stroke="#388bfd" stroke-width="1.5" stroke-opacity="0.6"/>
+  <rect x="30" y="80" width="120" height="130" rx="8" fill="#388bfd" fill-opacity="0.15"/>
+  <text x="90" y="138" text-anchor="middle" font-size="13" font-weight="bold" fill="#388bfd">BUSINESS</text>
+  <text x="90" y="155" text-anchor="middle" font-size="9" fill="#388bfd" fill-opacity="0.7">Governance</text>
+
+  <!-- Business nodes -->
+  <g class="node">
+    <rect x="180" y="110" width="160" height="56" rx="8" fill="#21262d" stroke="#388bfd" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="260" y="135" text-anchor="middle" font-size="12" font-weight="bold" fill="#388bfd">Kanban Intake</text>
+    <text x="260" y="152" text-anchor="middle" font-size="9" fill="#8b949e">backlog / wip / closed</text>
+  </g>
+  <g class="node">
+    <rect x="390" y="110" width="160" height="56" rx="8" fill="#21262d" stroke="#388bfd" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="470" y="135" text-anchor="middle" font-size="12" font-weight="bold" fill="#388bfd">Sprint Plan</text>
+    <text x="470" y="152" text-anchor="middle" font-size="9" fill="#8b949e">52 sprints FY2026-27</text>
+  </g>
+  <g class="node">
+    <rect x="600" y="110" width="160" height="56" rx="8" fill="#21262d" stroke="#388bfd" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="680" y="135" text-anchor="middle" font-size="12" font-weight="bold" fill="#388bfd">Milestone Gate</text>
+    <text x="680" y="152" text-anchor="middle" font-size="9" fill="#8b949e">milestones.md review</text>
+  </g>
+  <g class="node">
+    <rect x="810" y="110" width="160" height="56" rx="8" fill="#21262d" stroke="#388bfd" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="890" y="135" text-anchor="middle" font-size="12" font-weight="bold" fill="#388bfd">Velocity Review</text>
+    <text x="890" y="152" text-anchor="middle" font-size="9" fill="#8b949e">tok/s + sprint metrics</text>
+  </g>
+
+  <!-- Business flow arrows -->
+  <line x1="340" y1="138" x2="388" y2="138" class="flow-h" stroke="#388bfd" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <line x1="550" y1="138" x2="598" y2="138" class="flow-h" stroke="#388bfd" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <line x1="760" y1="138" x2="808" y2="138" class="flow-h" stroke="#388bfd" stroke-width="2" marker-end="url(#arrow-blue)"/>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- SWIMLANE 2: DEVELOPMENT (Green) -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <rect x="30" y="225" width="1040" height="130" rx="8" fill="#161b22" stroke="#3fb950" stroke-width="1.5" stroke-opacity="0.6"/>
+  <rect x="30" y="225" width="120" height="130" rx="8" fill="#3fb950" fill-opacity="0.15"/>
+  <text x="90" y="283" text-anchor="middle" font-size="13" font-weight="bold" fill="#3fb950">DEVELOPMENT</text>
+  <text x="90" y="300" text-anchor="middle" font-size="9" fill="#3fb950" fill-opacity="0.7">Build + Test</text>
+
+  <!-- Dev nodes -->
+  <g class="node">
+    <rect x="180" y="255" width="160" height="56" rx="8" fill="#21262d" stroke="#3fb950" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="260" y="280" text-anchor="middle" font-size="12" font-weight="bold" fill="#3fb950">Git Push</text>
+    <text x="260" y="297" text-anchor="middle" font-size="9" fill="#8b949e">branch + commit</text>
+  </g>
+  <g class="node">
+    <rect x="390" y="255" width="160" height="56" rx="8" fill="#21262d" stroke="#3fb950" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="470" y="280" text-anchor="middle" font-size="12" font-weight="bold" fill="#3fb950">Model Build</text>
+    <text x="470" y="297" text-anchor="middle" font-size="9" fill="#8b949e">Modelfile + ollama create</text>
+  </g>
+  <g class="node">
+    <rect x="600" y="255" width="160" height="56" rx="8" fill="#21262d" stroke="#3fb950" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="680" y="280" text-anchor="middle" font-size="12" font-weight="bold" fill="#3fb950">Test Verify</text>
+    <text x="680" y="297" text-anchor="middle" font-size="9" fill="#8b949e">12 VER test cases</text>
+  </g>
+  <g class="node">
+    <rect x="810" y="255" width="160" height="56" rx="8" fill="#21262d" stroke="#3fb950" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="890" y="280" text-anchor="middle" font-size="12" font-weight="bold" fill="#3fb950">Smart Push</text>
+    <text x="890" y="297" text-anchor="middle" font-size="9" fill="#8b949e">424-line automation</text>
+  </g>
+
+  <!-- Dev flow arrows -->
+  <line x1="340" y1="283" x2="388" y2="283" class="flow-h" stroke="#3fb950" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <line x1="550" y1="283" x2="598" y2="283" class="flow-h" stroke="#3fb950" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <line x1="760" y1="283" x2="808" y2="283" class="flow-h" stroke="#3fb950" stroke-width="2" marker-end="url(#arrow-green)"/>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- SWIMLANE 3: PRODUCTION (Purple) -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <rect x="30" y="370" width="1040" height="130" rx="8" fill="#161b22" stroke="#a371f7" stroke-width="1.5" stroke-opacity="0.6"/>
+  <rect x="30" y="370" width="120" height="130" rx="8" fill="#a371f7" fill-opacity="0.15"/>
+  <text x="90" y="428" text-anchor="middle" font-size="13" font-weight="bold" fill="#a371f7">PRODUCTION</text>
+  <text x="90" y="445" text-anchor="middle" font-size="9" fill="#a371f7" fill-opacity="0.7">Runtime</text>
+
+  <!-- Prod nodes -->
+  <g class="node">
+    <rect x="180" y="400" width="160" height="56" rx="8" fill="#21262d" stroke="#a371f7" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="260" y="425" text-anchor="middle" font-size="12" font-weight="bold" fill="#a371f7">gRPC Dispatch</text>
+    <text x="260" y="442" text-anchor="middle" font-size="9" fill="#8b949e">server :50051</text>
+  </g>
+  <g class="node">
+    <rect x="390" y="400" width="160" height="56" rx="8" fill="#21262d" stroke="#a371f7" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="470" y="425" text-anchor="middle" font-size="12" font-weight="bold" fill="#a371f7">Ollama Inference</text>
+    <text x="470" y="442" text-anchor="middle" font-size="9" fill="#8b949e">ollama run ~4 tok/s</text>
+  </g>
+  <g class="node">
+    <rect x="600" y="400" width="160" height="56" rx="8" fill="#21262d" stroke="#a371f7" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="680" y="425" text-anchor="middle" font-size="12" font-weight="bold" fill="#a371f7">File Write</text>
+    <text x="680" y="442" text-anchor="middle" font-size="9" fill="#8b949e">atomic temp+move</text>
+  </g>
+  <g class="node">
+    <rect x="810" y="400" width="160" height="56" rx="8" fill="#21262d" stroke="#a371f7" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="890" y="425" text-anchor="middle" font-size="12" font-weight="bold" fill="#a371f7">DB Log</text>
+    <text x="890" y="442" text-anchor="middle" font-size="9" fill="#8b949e">SQLite WAL history.db</text>
+  </g>
+
+  <!-- Prod flow arrows -->
+  <line x1="340" y1="428" x2="388" y2="428" class="flow-h" stroke="#a371f7" stroke-width="2" marker-end="url(#arrow-purple)"/>
+  <line x1="550" y1="428" x2="598" y2="428" class="flow-h" stroke="#a371f7" stroke-width="2" marker-end="url(#arrow-purple)"/>
+  <line x1="760" y1="428" x2="808" y2="428" class="flow-h" stroke="#a371f7" stroke-width="2" marker-end="url(#arrow-purple)"/>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- SWIMLANE 4: MONITORING (Gold) -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <rect x="30" y="515" width="1040" height="130" rx="8" fill="#161b22" stroke="#d29922" stroke-width="1.5" stroke-opacity="0.6"/>
+  <rect x="30" y="515" width="120" height="130" rx="8" fill="#d29922" fill-opacity="0.15"/>
+  <text x="90" y="573" text-anchor="middle" font-size="13" font-weight="bold" fill="#d29922">MONITORING</text>
+  <text x="90" y="590" text-anchor="middle" font-size="9" fill="#d29922" fill-opacity="0.7">Compliance</text>
+
+  <!-- Mon nodes -->
+  <g class="node">
+    <rect x="180" y="545" width="160" height="56" rx="8" fill="#21262d" stroke="#d29922" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="260" y="570" text-anchor="middle" font-size="12" font-weight="bold" fill="#d29922">Cred Audit</text>
+    <text x="260" y="587" text-anchor="middle" font-size="9" fill="#8b949e">SSH + PAT rotation</text>
+  </g>
+  <g class="node">
+    <rect x="390" y="545" width="160" height="56" rx="8" fill="#21262d" stroke="#d29922" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="470" y="570" text-anchor="middle" font-size="12" font-weight="bold" fill="#d29922">Health Check</text>
+    <text x="470" y="587" text-anchor="middle" font-size="9" fill="#8b949e">ollama + DB + uptime</text>
+  </g>
+  <g class="node">
+    <rect x="600" y="545" width="160" height="56" rx="8" fill="#21262d" stroke="#d29922" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="680" y="570" text-anchor="middle" font-size="12" font-weight="bold" fill="#d29922">Doc Sync</text>
+    <text x="680" y="587" text-anchor="middle" font-size="9" fill="#8b949e">README + changelog</text>
+  </g>
+  <g class="node">
+    <rect x="810" y="545" width="160" height="56" rx="8" fill="#21262d" stroke="#d29922" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="890" y="570" text-anchor="middle" font-size="12" font-weight="bold" fill="#d29922">CMMI Compliance</text>
+    <text x="890" y="587" text-anchor="middle" font-size="9" fill="#8b949e">maturity gate check</text>
+  </g>
+
+  <!-- Mon flow arrows -->
+  <line x1="340" y1="573" x2="388" y2="573" class="flow-h" stroke="#d29922" stroke-width="2" marker-end="url(#arrow-gold)"/>
+  <line x1="550" y1="573" x2="598" y2="573" class="flow-h" stroke="#d29922" stroke-width="2" marker-end="url(#arrow-gold)"/>
+  <line x1="760" y1="573" x2="808" y2="573" class="flow-h" stroke="#d29922" stroke-width="2" marker-end="url(#arrow-gold)"/>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- CROSS-LANE ARROWS -->
+  <!-- ═══════════════════════════════════════════════ -->
+
+  <!-- Business → Dev: card-create triggers git workflow -->
+  <line x1="260" y1="166" x2="260" y2="253" class="flow-v" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow-cross)"/>
+  <text x="272" y="212" font-size="8" fill="#8b949e" font-style="italic">card-create</text>
+
+  <!-- Dev → Prod: smart-push triggers gRPC pipeline -->
+  <line x1="890" y1="311" x2="260" y2="398" class="flow-v" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow-cross)"/>
+  <text x="560" y="348" font-size="8" fill="#8b949e" font-style="italic">smart-push triggers gRPC</text>
+
+  <!-- Prod → Mon: DB log triggers audit -->
+  <line x1="890" y1="456" x2="260" y2="543" class="flow-v" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow-cross)"/>
+  <text x="560" y="493" font-size="8" fill="#8b949e" font-style="italic">DB log triggers audit</text>
+
+  <!-- Mon → Business: compliance feeds velocity review -->
+  <path d="M 970 573 Q 1060 573, 1060 138 Q 1060 110, 890 166" fill="none" class="flow-v" stroke="#8b949e" stroke-width="2" marker-end="url(#arrow-cross)"/>
+  <text x="1045" y="380" font-size="8" fill="#8b949e" font-style="italic" transform="rotate(-90, 1045, 380)">compliance → velocity</text>
+
+  <!-- ═══════════════════════════════════════════════ -->
+  <!-- FOOTER -->
+  <!-- ═══════════════════════════════════════════════ -->
+  <line x1="30" y1="660" x2="1070" y2="660" stroke="#21262d" stroke-width="1"/>
+  <text x="550" y="682" text-anchor="middle" font-size="10" fill="#8b949e">kanban-pmo v3.1.0 | i7-6500U 2C/4T 7.6GB RAM | llama3.2 3B ~4.0 tok/s | CPU-only, no GPU</text>
+  <text x="550" y="700" text-anchor="middle" font-size="9" fill="#484f58">Generated 2026-02-17 | BDPM = Business, Development, Production, Monitoring</text>
+
+</svg>
