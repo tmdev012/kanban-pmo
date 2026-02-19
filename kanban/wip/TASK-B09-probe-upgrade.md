@@ -1,6 +1,6 @@
 # TASK-B09: persist-memory-probe Upgrade — Real Tracking Implementations
 
-- **Status:** backlog
+- **Status:** wip
 - **Labels:** probe, infra, priority:high
 - **Parent:** TASK-B06 (T3 of 5)
 - **Assignee:** tmdev012
@@ -17,9 +17,9 @@ under governor authority, and `db_sync.py` syncs probe state to SQLite.
 
 ## Deliverables
 
-- [ ] `lib/py/repo_tracker.py` — real repo discovery + status tracking
-- [ ] `lib/py/fs_writer.py` — authorised file write bridge (delegates to kanban-pmo governor)
-- [ ] `lib/py/db_sync.py` — sync probe metadata to SQLite history.db
+- [x] `lib/py/repo_tracker.py` — real repo discovery + status tracking
+- [x] `lib/py/fs_writer.py` — authorised file write bridge (delegates to kanban-pmo governor)
+- [x] `lib/py/db_sync.py` — sync probe metadata to SQLite history.db
 
 ## Acceptance Criteria
 
