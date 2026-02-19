@@ -1,0 +1,112 @@
+# kanban-pmo Repo Registry
+# Governor: kanban-pmo | Updated: 2026-02-19 | Version: 1.0.0
+# This file is the single source of truth for all repos under governance.
+# Do NOT edit manually — use governor.py write operations.
+
+meta:
+  total_known: 21
+  discovered_local: 6
+  pending_discovery: 15
+  updated: "2026-02-19"
+  governor_version: "1.0.0"
+
+repos:
+  kanban-pmo:
+    local_path: "/home/tmdev012/kanban-pmo"
+    remote_url: "git@github.com:tmdev012/kanban-pmo.git"
+    branch: main
+    env_template: null
+    gitignore_profile: python
+    status: active
+    role: governor
+    env_stage: dev
+    write_authority: self
+
+  ollama-local:
+    local_path: "/home/tmdev012/ollama-local"
+    remote_url: "git@github.com:tmdev012/ollama-local.git"
+    branch: main
+    env_template: ollama-local
+    gitignore_profile: python
+    status: active
+    role: offline-workhorse
+    env_stage: dev
+    write_authority: kanban-pmo
+
+  persist-memory-probe:
+    local_path: "/home/tmdev012/persist-memory-probe"
+    remote_url: "git@github.com:tmdev012/persist-memory-probe.git"
+    branch: main
+    env_template: probe
+    gitignore_profile: python-node
+    status: active
+    role: probe
+    env_stage: dev
+    write_authority: kanban-pmo
+
+  ollama-telemetry:
+    local_path: "/home/tmdev012/ollama-telemetry"
+    remote_url: "git@github.com:tmdev012/ollama-telemetry.git"
+    branch: main
+    env_template: null
+    gitignore_profile: python
+    status: active
+    role: telemetry
+    env_stage: dev
+    write_authority: kanban-pmo
+
+  football-telemetry:
+    local_path: "/home/tmdev012/football-telemetry"
+    remote_url: null
+    branch: main
+    env_template: null
+    gitignore_profile: python
+    status: active
+    role: domain-project
+    env_stage: dev
+    write_authority: kanban-pmo
+
+  portfolio-dashboard:
+    local_path: "/home/tmdev012/portfolio-dashboard"
+    remote_url: "git@github.com:tmdev012/portfolio-dashboard.git"
+    branch: main
+    env_template: null
+    gitignore_profile: node
+    status: active
+    role: domain-project
+    env_stage: dev
+    write_authority: kanban-pmo
+
+# Slots 7–21: pending discovery (remote-only or not yet cloned)
+# Run: governor.discover() to auto-populate from GitHub API
+pending:
+  - slot: 7
+    note: "pending gh repo list --json name,sshUrl"
+  - slot: 8
+    note: "pending"
+  - slot: 9
+    note: "pending"
+  - slot: 10
+    note: "pending"
+  - slot: 11
+    note: "pending"
+  - slot: 12
+    note: "pending"
+  - slot: 13
+    note: "pending"
+  - slot: 14
+    note: "pending"
+  - slot: 15
+    note: "pending"
+  - slot: 16
+    note: "pending"
+  - slot: 17
+    note: "pending"
+  - slot: 18
+    note: "pending"
+  - slot: 19
+    note: "pending"
+  - slot: 20
+    note: "pending"
+  - slot: 21
+    note: "pending"
