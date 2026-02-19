@@ -5,8 +5,8 @@ Version: 1.0.0 | Created: 2026-02-19
 """
 
 from pathlib import Path
-from typing import List
-from governor import write_file, get_repo, load_registry
+from typing import List, Optional
+from .governor import write_file, get_repo, load_registry
 
 PROFILES_DIR = Path(__file__).parent.parent.parent / "config" / "gitignore_profiles"
 
@@ -43,4 +43,3 @@ def list_profiles() -> List[str]:
     return [p.stem for p in PROFILES_DIR.glob("*.gitignore")]
 
 
-from typing import Optional  # noqa: E402 (needed after forward ref above)
