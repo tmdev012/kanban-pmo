@@ -1,0 +1,131 @@
+syntax = "proto3";
+
+package kanban;
+
+option py_generic_services = false;
+
+// ── RepoRegistry ──────────────────────────────────────────────────────────────
+
+service RepoRegistry {
+  rpc ListRepos    (ListReposRequest)  returns (ListReposResponse);
+  rpc GetRepo      (GetRepoRequest)    returns (RepoEntry);
+  rpc AddRepo      (AddRepoRequest)    returns (StatusResponse);
+  rpc UpdateRepo   (UpdateRepoRequest) returns (StatusResponse);
+}
+
+message ListReposRequest {
+  string status_filter = 1;  // "active" | "inactive" | "" (all)
+}
+
+message ListReposResponse {
+  repeated RepoEntry repos = 1;
+}
+
+message RepoEntry {
+  string name             = 1;
+  string local_path       = 2;
+  string remote_url       = 3;
+  string branch           = 4;
+  string env_template     = 5;
+  string gitignore_profile = 6;
+  string status           = 7;
+  string role             = 8;
+  string env_stage        = 9;
+  string write_authority  = 10;
+}
+
+message GetRepoRequest {
+  string name = 1;
+}
+
+message AddRepoRequest {
+  RepoEntry repo = 1;
+}
+
+message UpdateRepoRequest {
+  string name             = 1;
+  map<string, string> fields = 2;
+}
+
+// ── FileWrite ─────────────────────────────────────────────────────────────────
+
+service FileWrite {
+  rpc Write        (WriteRequest)      returns (WriteResponse);
+  rpc MergeLines   (MergeRequest)      returns (WriteResponse);
+  rpc SetEnvKey    (SetEnvKeyRequest)  returns (WriteResponse);
+}
+
+message WriteRequest {
+  string repo_name      = 1;
+  string relative_path  = 2;
+  string content        = 3;
+  bool   merge          = 4;
+}
+
+message WriteResponse {
+  bool   ok             = 1;
+  string written_path   = 2;
+  string error          = 3;
+}
+
+message MergeRequest {
+  string repo_name      = 1;
+  repeated string lines = 2;
+}
+
+message SetEnvKeyRequest {
+  string repo_name = 1;
+  string key       = 2;
+  string value     = 3;
+}
+
+// ── IssueEvent ────────────────────────────────────────────────────────────────
+
+service IssueEvent {
+  rpc Emit         (IssueEventRequest)   returns (StatusResponse);
+  rpc Stream       (StreamRequest)       returns (stream IssueEventRequest);
+}
+
+message IssueEventRequest {
+  string task_id    = 1;
+  string repo_name  = 2;
+  string event_type = 3;   // "created" | "wip" | "closed" | "tick"
+  string field      = 4;   // e.g. "Deliverables[0]"
+  string payload    = 5;
+  string timestamp  = 6;
+}
+
+message StreamRequest {
+  string repo_filter = 1;
+}
+
+// ── ProbeSync ─────────────────────────────────────────────────────────────────
+
+service ProbeSync {
+  rpc SyncRepo     (SyncRepoRequest)   returns (SyncRepoResponse);
+  rpc FsWrite      (FsWriteRequest)    returns (WriteResponse);
+}
+
+message SyncRepoRequest {
+  string repo_name = 1;
+  bool   force     = 2;
+}
+
+message SyncRepoResponse {
+  bool   ok           = 1;
+  int32  files_synced = 2;
+  string error        = 3;
+}
+
+message FsWriteRequest {
+  string target_path = 1;
+  string content     = 2;
+}
+
+// ── Shared ────────────────────────────────────────────────────────────────────
+
+message StatusResponse {
+  bool   ok      = 1;
+  string message = 2;
+  string error   = 3;
+}
