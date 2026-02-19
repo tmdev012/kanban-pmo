@@ -1,7 +1,7 @@
 meta:
-  total_known: 21
-  discovered_local: 6
-  pending_discovery: 15
+  total_known: 11
+  discovered_local: 11
+  pending_discovery: 0
   updated: '2026-02-19'
   governor_version: 1.0.0
 repos:
@@ -48,7 +48,7 @@ repos:
   football-telemetry:
     local_path: /home/tmdev012/football-telemetry
     remote_url: null
-    branch: main
+    branch: unknown
     env_template: null
     gitignore_profile: python
     status: active
@@ -65,34 +65,53 @@ repos:
     role: domain-project
     env_stage: dev
     write_authority: kanban-pmo
-pending:
-- slot: 7
-  note: pending gh repo list --json name,sshUrl
-- slot: 8
-  note: pending
-- slot: 9
-  note: pending
-- slot: 10
-  note: pending
-- slot: 11
-  note: pending
-- slot: 12
-  note: pending
-- slot: 13
-  note: pending
-- slot: 14
-  note: pending
-- slot: 15
-  note: pending
-- slot: 16
-  note: pending
-- slot: 17
-  note: pending
-- slot: 18
-  note: pending
-- slot: 19
-  note: pending
-- slot: 20
-  note: pending
-- slot: 21
-  note: pending
+  calendaR:
+    local_path: /home/tmdev012/projects/calendaR
+    remote_url: git@github.com:tmdev012/calendaR.git
+    branch: main
+    env_template: null
+    gitignore_profile: python
+    status: active
+    role: domain-project
+    env_stage: dev
+    write_authority: kanban-pmo
+  Nemo:
+    local_path: /home/tmdev012/projects/Nemo
+    remote_url: git@github.com:tmdev012/Nemo.git
+    branch: main
+    env_template: null
+    gitignore_profile: python
+    status: active
+    role: domain-project
+    env_stage: dev
+    write_authority: kanban-pmo
+  TermuxHub:
+    local_path: /home/tmdev012/projects/TermuxHub
+    remote_url: git@github.com:tmdev012/TermuxHub.git
+    branch: main
+    env_template: null
+    gitignore_profile: python-node
+    status: active
+    role: domain-project
+    env_stage: dev
+    write_authority: kanban-pmo
+  timetrakr:
+    local_path: /home/tmdev012/projects/timetrakr
+    remote_url: git@github.com:tmdev012/timetrakr.git
+    branch: main
+    env_template: null
+    gitignore_profile: python
+    status: active
+    role: domain-project
+    env_stage: dev
+    write_authority: kanban-pmo
+  vercel_deploy:
+    local_path: /home/tmdev012/projects/vercel_deploy
+    remote_url: git@github.com:tmdev012/vercel_deploy.git
+    branch: main
+    env_template: null
+    gitignore_profile: node
+    status: active
+    role: domain-project
+    env_stage: dev
+    write_authority: kanban-pmo
