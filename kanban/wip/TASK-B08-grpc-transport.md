@@ -1,6 +1,6 @@
 # TASK-B08: gRPC Transport Layer — kanban-pmo Service Interface
 
-- **Status:** backlog
+- **Status:** wip
 - **Labels:** grpc, infra, priority:high
 - **Parent:** TASK-B06 (T2 of 5)
 - **Assignee:** tmdev012
@@ -17,8 +17,8 @@ issue event streaming, and persist-memory-probe sync operations.
 
 ## Deliverables
 
-- [ ] `proto/kanban.proto` — service definitions: RepoRegistry, FileWrite, IssueEvent, ProbeSync
-- [ ] `server/grpc_server.py` — servicer implementations wrapping governor layer
+- [x] `proto/kanban.proto` — service definitions: RepoRegistry, FileWrite, IssueEvent, ProbeSync
+- [x] `server/grpc_server.py` — servicer implementations wrapping governor layer
 - [ ] `generated/` — compiled Python stubs (kanban_pb2.py, kanban_pb2_grpc.py)
 
 ## Acceptance Criteria
