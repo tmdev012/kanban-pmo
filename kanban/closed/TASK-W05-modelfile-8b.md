@@ -1,6 +1,6 @@
 # TASK-W05: Modelfile.8b + Build sashi-llama-8b
 
-- **Status:** wip
+- **Status:** closed
 - **Labels:** model, sashi, priority:med
 - **Assignee:** tmdev012
 - **Sprint:** S00 (pre-season)
