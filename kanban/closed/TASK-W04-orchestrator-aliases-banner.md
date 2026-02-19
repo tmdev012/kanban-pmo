@@ -1,6 +1,6 @@
 # TASK-W04: Integrate Shared Banner into Orchestrator + Aliases
 
-- **Status:** wip
+- **Status:** closed
 - **Labels:** banner, sashi, priority:high
 - **Assignee:** tmdev012
 - **Sprint:** S00 (pre-season)

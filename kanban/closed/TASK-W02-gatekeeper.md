@@ -1,6 +1,6 @@
 # TASK-W02: Probe gatekeeper_3_1_0 — Credential Gateway + Inference Delegation
 
-- **Status:** wip
+- **Status:** closed
 - **Labels:** probe, sashi, priority:high
 - **Assignee:** tmdev012
 - **Sprint:** S00 (pre-season)

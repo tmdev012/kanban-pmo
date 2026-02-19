@@ -1,6 +1,6 @@
 # TASK-W03: Sashi CLI v3.1.0 — Kanban, Write, Banner
 
-- **Status:** wip
+- **Status:** closed
 - **Labels:** sashi, priority:high
 - **Assignee:** tmdev012
 - **Sprint:** S00 (pre-season)

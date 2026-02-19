@@ -1,6 +1,6 @@
 # TASK-W01: Signature ASCII Banner — 15-Line Shared Function
 
-- **Status:** wip
+- **Status:** closed
 - **Labels:** banner, sashi, priority:high
 - **Assignee:** tmdev012
 - **Sprint:** S00 (pre-season)
