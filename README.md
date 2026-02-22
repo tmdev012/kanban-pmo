@@ -262,10 +262,10 @@ temperature = 0.7
 
 ```
 kanban/
-├── backlog/          # 5 cards — completed work pending docs
+├── backlog/          # 7 cards — future sprint items
 ├── open/             # 0 cards
-├── wip/              # 7 cards — v3.2.0 remaining tasks
-├── closed/           # 0 cards — only when documented + verified
+├── wip/              # 2 cards — W06 (openrouter), W07 (docs)
+├── closed/           # 11 cards — verified complete
 ├── labels/           # Label definitions
 ├── tests/            # 12 verification test cases
 ├── exports/          # CSV/JSON board exports
@@ -278,7 +278,7 @@ kanban/
 - **Cadence:** 1-week sprints (tools shape time)
 - **FY:** 2026-27 (Mar 2026 – Feb 2027)
 - **Total:** 52 sprints
-- **Current:** S00 (pre-season, v3.2.0 build)
+- **Current:** S01 — v3.2.0 shipped, gRPC + probe live
 - See: `kanban/milestones.md`
 
 ### CLI Access
@@ -299,6 +299,11 @@ ai-orchestrator --kanban board  # Same data, different entry point
 - Credential gateway: delegates inference to ollama-local, keeps github/sign/remote routes
 - `gatekeeper_3_1_0.sh kanban` delegates to canonical orchestrator
 
+### Shared Shell Libraries
+
+- `ollama-local/lib/sh/banner.sh` — `sashi_banner()` ASCII art, sourced by sashi + ai-orchestrator
+- `ollama-local/lib/sh/aliases.sh` — shell aliases (s8b, skanban, etc.) sourced by all tools
+
 ### Project Tracking
 
 - `projects/sashi-v3.2.0/tracker.md` — full task breakdown
@@ -312,4 +317,4 @@ MIT
 
 ---
 
-*Scaffolded with Claude Code - Feb 2026 | Last updated: 2026-02-17 | Version: 3.2.0*
+*Scaffolded with Claude Code - Feb 2026 | Last updated: 2026-02-22 | Version: 3.2.0*
