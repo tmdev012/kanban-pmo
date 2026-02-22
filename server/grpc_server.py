@@ -154,13 +154,29 @@ class IssueEventServicer:
 # ── ProbeSync Servicer ───────────────────────────────────────────────────────
 
 class ProbeSyncServicer:
-    """Thin bridge to persist-memory-probe fs_writer."""
+    """Bridge to persist-memory-probe — runs integrate.py, exposes FsWrite."""
+
+    _PROBE_ROOT = Path.home() / "persist-memory-probe"
+    _INTEGRATE  = _PROBE_ROOT / "lib" / "py" / "integrate.py"
 
     def SyncRepo(self, request, context):
+        import subprocess, re
         try:
-            from lib.py.governor import get_repo
-            repo = get_repo(request.repo_name)
-            return kanban_pb2.SyncRepoResponse(ok=True, files_synced=0)
+            cmd = ["python3", str(self._INTEGRATE)]
+            result = subprocess.run(
+                cmd,
+                capture_output=True,
+                text=True,
+                timeout=60,
+                cwd=str(self._PROBE_ROOT / "lib" / "py"),
+            )
+            # Parse "Synced N repos → ..." from integrate.py stdout
+            m = re.search(r"Synced (\d+) repos", result.stdout)
+            files_synced = int(m.group(1)) if m else 0
+            ok = result.returncode == 0
+            error = result.stderr.strip() if not ok else ""
+            print(f"[probe] SyncRepo repo={request.repo_name!r} ok={ok} files={files_synced}")
+            return kanban_pb2.SyncRepoResponse(ok=ok, files_synced=files_synced, error=error)
         except Exception as e:
             return kanban_pb2.SyncRepoResponse(ok=False, error=str(e))
 
@@ -169,6 +185,7 @@ class ProbeSyncServicer:
             path = Path(request.target_path)
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_text(request.content)
+            print(f"[probe] FsWrite path={path}")
             return kanban_pb2.WriteResponse(ok=True, written_path=str(path))
         except Exception as e:
             return kanban_pb2.WriteResponse(ok=False, error=str(e))
