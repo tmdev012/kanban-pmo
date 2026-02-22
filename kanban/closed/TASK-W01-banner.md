@@ -14,12 +14,12 @@ Create shared 15-line ASCII art banner function in `~/ollama-local/lib/sh/banner
 
 ## Acceptance Criteria
 
-- [ ] `~/ollama-local/lib/sh/banner.sh` created
-- [ ] `sashi_banner` function renders 15 lines, ~78 cols
-- [ ] Colors: cyan art, green version, dim frame
-- [ ] Sourced by ai-orchestrator
-- [ ] Sourced by sashi CLI
-- [ ] Sourced by aliases.sh mcp-help()
+- [x] `~/ollama-local/lib/sh/banner.sh` created
+- [x] `sashi_banner` function renders 15 lines, ~78 cols
+- [x] Colors: cyan art, green version, dim frame
+- [x] Sourced by ai-orchestrator
+- [x] Sourced by sashi CLI
+- [x] Sourced by aliases.sh mcp-help()
 
 ## Files
 

@@ -14,10 +14,10 @@ Create Modelfile.8b with same v3.2.0 system prompt as Modelfile.fast but targeti
 
 ## Acceptance Criteria
 
-- [ ] `~/ollama-local/Modelfile.8b` created
-- [ ] FROM llama3.1:8b
-- [ ] num_ctx 4096, num_predict 1024, num_thread 2, temperature 0.7
-- [ ] `ollama create sashi-llama-8b -f Modelfile.8b` succeeds
+- [x] `~/ollama-local/Modelfile.8b` created
+- [x] FROM llama3.1:8b
+- [x] num_ctx 4096, num_predict 1024, num_thread 2, temperature 0.7
+- [x] `ollama create sashi-llama-8b -f Modelfile.8b` succeeds
 
 ## Files
 

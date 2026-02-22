@@ -122,6 +122,33 @@ message FsWriteRequest {
   string content     = 2;
 }
 
+// ── VersionService ────────────────────────────────────────────────────────────
+
+service VersionService {
+  rpc GetVersion   (VersionRequest)   returns (VersionResponse);
+  rpc GetChangelog (ChangelogRequest) returns (ChangelogResponse);
+}
+
+message VersionRequest {}
+
+message VersionResponse {
+  string version  = 1;
+  string date     = 2;
+  string model_3b = 3;
+  string model_8b = 4;
+}
+
+message ChangelogRequest {
+  int32 entries = 1;  // 0 = all, N = latest N versions
+}
+
+message ChangelogResponse {
+  string latest_version = 1;
+  string latest_date    = 2;
+  string summary        = 3;  // bullet points for prompt injection
+  string full_text      = 4;  // entire CHANGELOG.md
+}
+
 // ── Shared ────────────────────────────────────────────────────────────────────
 
 message StatusResponse {

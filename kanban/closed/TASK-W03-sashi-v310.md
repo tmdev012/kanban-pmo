@@ -14,13 +14,13 @@ Update sashi CLI: version bump to 3.2.0, source shared banner, add kanban subcom
 
 ## Acceptance Criteria
 
-- [ ] VERSION="3.1.0"
-- [ ] Sources banner.sh, calls sashi_banner in help/status/chat
-- [ ] `sashi kanban board` — column counts
-- [ ] `sashi kanban state` — full state (files + DB)
-- [ ] `sashi kanban backlog|open|wip|closed` — list cards
-- [ ] `sashi write <file> <prompt>` — runs llama, writes output
-- [ ] Help text updated with kanban + write
+- [x] VERSION="3.1.0"
+- [x] Sources banner.sh, calls sashi_banner in help/status/chat
+- [x] `sashi kanban board` — column counts
+- [x] `sashi kanban state` — full state (files + DB)
+- [x] `sashi kanban backlog|open|wip|closed` — list cards
+- [x] `sashi write <file> <prompt>` — runs llama, writes output
+- [x] Help text updated with kanban + write
 
 ## Files
 

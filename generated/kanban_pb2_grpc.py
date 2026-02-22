@@ -636,3 +636,124 @@ class ProbeSync(object):
             timeout,
             metadata,
             _registered_method=True)
+
+
+class VersionServiceStub(object):
+    """── VersionService ────────────────────────────────────────────────────────────
+
+    """
+
+    def __init__(self, channel):
+        """Constructor.
+
+        Args:
+            channel: A grpc.Channel.
+        """
+        self.GetVersion = channel.unary_unary(
+                '/kanban.VersionService/GetVersion',
+                request_serializer=kanban__pb2.VersionRequest.SerializeToString,
+                response_deserializer=kanban__pb2.VersionResponse.FromString,
+                _registered_method=True)
+        self.GetChangelog = channel.unary_unary(
+                '/kanban.VersionService/GetChangelog',
+                request_serializer=kanban__pb2.ChangelogRequest.SerializeToString,
+                response_deserializer=kanban__pb2.ChangelogResponse.FromString,
+                _registered_method=True)
+
+
+class VersionServiceServicer(object):
+    """── VersionService ────────────────────────────────────────────────────────────
+
+    """
+
+    def GetVersion(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+    def GetChangelog(self, request, context):
+        """Missing associated documentation comment in .proto file."""
+        context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
+
+
+def add_VersionServiceServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+            'GetVersion': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetVersion,
+                    request_deserializer=kanban__pb2.VersionRequest.FromString,
+                    response_serializer=kanban__pb2.VersionResponse.SerializeToString,
+            ),
+            'GetChangelog': grpc.unary_unary_rpc_method_handler(
+                    servicer.GetChangelog,
+                    request_deserializer=kanban__pb2.ChangelogRequest.FromString,
+                    response_serializer=kanban__pb2.ChangelogResponse.SerializeToString,
+            ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+            'kanban.VersionService', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('kanban.VersionService', rpc_method_handlers)
+
+
+ # This class is part of an EXPERIMENTAL API.
+class VersionService(object):
+    """── VersionService ────────────────────────────────────────────────────────────
+
+    """
+
+    @staticmethod
+    def GetVersion(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/kanban.VersionService/GetVersion',
+            kanban__pb2.VersionRequest.SerializeToString,
+            kanban__pb2.VersionResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
+
+    @staticmethod
+    def GetChangelog(request,
+            target,
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            insecure=False,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/kanban.VersionService/GetChangelog',
+            kanban__pb2.ChangelogRequest.SerializeToString,
+            kanban__pb2.ChangelogResponse.FromString,
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)

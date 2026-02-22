@@ -24,15 +24,15 @@ gatekeeper_3_1_0.sh (credential layer)
 
 ## Acceptance Criteria
 
-- [ ] Renamed from ai-orchestrator.sh → gatekeeper_3_1_0.sh
-- [ ] VERSION="3.1.0"
-- [ ] Sources shared banner.sh
-- [ ] cmd_ollama() delegates to canonical ai-orchestrator (fast `ollama run`)
-- [ ] cmd_github(), cmd_sign(), cmd_remote() preserved
-- [ ] log_credential_usage() preserved
-- [ ] cmd_kanban() added — delegates with --kanban
-- [ ] cmd_train() added — calls train_credentials.py
-- [ ] --status shows credential status + system status
+- [x] Renamed from ai-orchestrator.sh → gatekeeper_3_1_0.sh
+- [x] VERSION="3.1.0"
+- [x] Sources shared banner.sh
+- [x] cmd_ollama() delegates to canonical ai-orchestrator (fast `ollama run`)
+- [x] cmd_github(), cmd_sign(), cmd_remote() preserved
+- [x] log_credential_usage() preserved
+- [x] cmd_kanban() added — delegates with --kanban
+- [x] cmd_train() added — calls train_credentials.py
+- [x] --status shows credential status + system status
 
 ## Files
 

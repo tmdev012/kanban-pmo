@@ -14,10 +14,10 @@ Update ai-orchestrator to source shared banner.sh and replace inline ASCII art. 
 
 ## Acceptance Criteria
 
-- [ ] ai-orchestrator sources banner.sh
-- [ ] ai-orchestrator inline banner replaced with sashi_banner call
-- [ ] aliases.sh mcp-help() sources banner.sh
-- [ ] aliases.sh mcp-help() calls sashi_banner
+- [x] ai-orchestrator sources banner.sh
+- [x] ai-orchestrator inline banner replaced with sashi_banner call
+- [x] aliases.sh mcp-help() sources banner.sh
+- [x] aliases.sh mcp-help() calls sashi_banner
 
 ## Files
 
