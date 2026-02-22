@@ -1,16 +1,16 @@
-# TASK-W03: Sashi CLI v3.1.0 — Kanban, Write, Banner
+# TASK-W03: Sashi CLI v3.2.0 — Kanban, Write, Banner
 
 - **Status:** closed
 - **Labels:** sashi, priority:high
 - **Assignee:** tmdev012
 - **Sprint:** S00 (pre-season)
 - **Time:** 45m
-- **Milestone:** S01 — v3.1.0 Ship
+- **Milestone:** S01 — v3.2.0 Ship
 - **Created:** 2026-02-17
 
 ## Description
 
-Update sashi CLI: version bump to 3.1.0, source shared banner, add kanban subcommand (board/state/columns), add write subcommand, update help text.
+Update sashi CLI: version bump to 3.2.0, source shared banner, add kanban subcommand (board/state/columns), add write subcommand, update help text.
 
 ## Acceptance Criteria
 

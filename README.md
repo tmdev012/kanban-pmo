@@ -254,7 +254,7 @@ temperature = 0.7
 
 ---
 
-## Sashi v3.1.0 Integration (2026-02-17)
+## Sashi v3.2.0 Integration (2026-02-17)
 
 > Kanban-pmo is now integrated with sashi CLI and ai-orchestrator via shared SQLite DB and file-based board.
 
@@ -264,7 +264,7 @@ temperature = 0.7
 kanban/
 ├── backlog/          # 5 cards — completed work pending docs
 ├── open/             # 0 cards
-├── wip/              # 7 cards — v3.1.0 remaining tasks
+├── wip/              # 7 cards — v3.2.0 remaining tasks
 ├── closed/           # 0 cards — only when documented + verified
 ├── labels/           # Label definitions
 ├── tests/            # 12 verification test cases
@@ -278,7 +278,7 @@ kanban/
 - **Cadence:** 1-week sprints (tools shape time)
 - **FY:** 2026-27 (Mar 2026 – Feb 2027)
 - **Total:** 52 sprints
-- **Current:** S00 (pre-season, v3.1.0 build)
+- **Current:** S00 (pre-season, v3.2.0 build)
 - See: `kanban/milestones.md`
 
 ### CLI Access
@@ -301,7 +301,7 @@ ai-orchestrator --kanban board  # Same data, different entry point
 
 ### Project Tracking
 
-- `projects/sashi-v3.1.0/tracker.md` — full task breakdown
+- `projects/sashi-v3.2.0/tracker.md` — full task breakdown
 - `kanban/milestones.md` — FY2026-27, 52 weekly sprints
 
 ---
@@ -312,4 +312,4 @@ MIT
 
 ---
 
-*Scaffolded with Claude Code - Feb 2026 | Last updated: 2026-02-17 | Version: 3.1.0*
+*Scaffolded with Claude Code - Feb 2026 | Last updated: 2026-02-17 | Version: 3.2.0*

@@ -18,4 +18,4 @@
 | `time:30m` | dim | Estimated 30 minutes |
 | `time:1h` | dim | Estimated 1 hour |
 
-*Updated: 2026-02-17 | Version: 3.1.0*
+*Updated: 2026-02-17 | Version: 3.2.0*

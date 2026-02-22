@@ -8,7 +8,7 @@
 
 | Sprint | Week | Dates | Milestone | Deliverable |
 |--------|------|-------|-----------|-------------|
-| S01 | W01 | Mar 02 – Mar 08 | **v3.1.0 Ship** | Banner, probe integration, kanban CLI, 8B model |
+| S01 | W01 | Mar 02 – Mar 08 | **v3.2.0 Ship** | Banner, probe integration, kanban CLI, 8B model |
 | S02 | W02 | Mar 09 – Mar 15 | **Test Scaffold** | pytest structure, sashi smoke tests |
 | S03 | W03 | Mar 16 – Mar 22 | **Unit Tests: Core** | sashi CLI commands, ollama run wrapper |
 | S04 | W04 | Mar 23 – Mar 29 | **Unit Tests: Orchestrator** | ai-orchestrator modes, flag parsing |
@@ -101,10 +101,10 @@ Fri PM: Retro — velocity check, next sprint prep
 
 ## Current Sprint
 
-**Sprint:** S00 (Pre-season — v3.1.0 build)
+**Sprint:** S00 (Pre-season — v3.2.0 build)
 **Window:** Feb 17, 2026 → Feb 28, 2026
 **Status:** WIP
-**Goal:** Ship v3.1.0, populate kanban, commit baseline
+**Goal:** Ship v3.2.0, populate kanban, commit baseline
 
 ---
 

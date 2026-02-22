@@ -5,7 +5,7 @@
 - **Assignee:** tmdev012
 - **Sprint:** S00 (pre-season)
 - **Time:** 45m
-- **Milestone:** S01 — v3.1.0 Ship
+- **Milestone:** S01 — v3.2.0 Ship
 - **Created:** 2026-02-17
 
 ## Description

@@ -5,12 +5,12 @@
 - **Assignee:** tmdev012
 - **Sprint:** S00 (pre-season)
 - **Time:** 15m
-- **Milestone:** S01 — v3.1.0 Ship
+- **Milestone:** S01 — v3.2.0 Ship
 - **Created:** 2026-02-17
 
 ## Description
 
-Create Modelfile.8b with same v3.1.0 system prompt as Modelfile.fast but targeting llama3.1:8b. Build model via ollama create.
+Create Modelfile.8b with same v3.2.0 system prompt as Modelfile.fast but targeting llama3.1:8b. Build model via ollama create.
 
 ## Acceptance Criteria
 

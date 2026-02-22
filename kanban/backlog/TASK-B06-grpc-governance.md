@@ -5,7 +5,7 @@
 - **Assignee:** tmdev012
 - **Sprint:** S01 — fast-track (pulled from S20-S21)
 - **Time:** 3h (estimated)
-- **Milestone:** S01 — v3.1.0 Ship → Governance Prerequisite
+- **Milestone:** S01 — v3.2.0 Ship → Governance Prerequisite
 - **Created:** 2026-02-19
 - **Blocked by:** none
 - **Blocks:** all future cross-repo ops

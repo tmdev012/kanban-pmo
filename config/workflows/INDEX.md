@@ -48,7 +48,7 @@ dispatch.sh get card.close # Single workflow JSON
 dispatch.sh status        # Board counts + workflow states
 dispatch.sh enable git.lock # Turn on patch freeze
 dispatch.sh disable sprint.retro # Turn off retro
-dispatch.sh version       # v3.1.0 rev1
+dispatch.sh version       # v3.2.0 rev1
 ```
 
-*Created: 2026-02-17 | v3.1.0 | tmdev012*
+*Created: 2026-02-17 | v3.2.0 | tmdev012*
