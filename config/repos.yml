@@ -1,6 +1,6 @@
 meta:
   total_known: 21
-  discovered_local: 13
+  discovered_local: 21
   pending_discovery: 0
   updated: '2026-02-23'
   governor_version: 1.0.0
@@ -136,82 +136,82 @@ repos:
     env_stage: dev
     write_authority: kanban-pmo
   ai-gateway:
-    local_path: null
+    local_path: /home/tmdev012/ai-gateway
     remote_url: git@github.com:tmdev012/ai-gateway.git
     branch: main
     env_template: null
     gitignore_profile: python
-    status: remote-only
+    status: active
     role: domain-project
     env_stage: dev
     write_authority: kanban-pmo
   contract-engine:
-    local_path: null
+    local_path: /home/tmdev012/contract-engine
     remote_url: git@github.com:tmdev012/contract-engine.git
     branch: main
     env_template: null
     gitignore_profile: python
-    status: remote-only
+    status: active
     role: domain-project
     env_stage: dev
     write_authority: kanban-pmo
   compliance-dashboard:
-    local_path: null
+    local_path: /home/tmdev012/compliance-dashboard
     remote_url: git@github.com:tmdev012/compliance-dashboard.git
     branch: main
     env_template: null
     gitignore_profile: python
-    status: remote-only
+    status: active
     role: domain-project
     env_stage: dev
     write_authority: kanban-pmo
   saas-billing:
-    local_path: null
+    local_path: /home/tmdev012/saas-billing
     remote_url: git@github.com:tmdev012/saas-billing.git
     branch: main
     env_template: null
     gitignore_profile: python
-    status: remote-only
+    status: active
     role: domain-project
     env_stage: dev
     write_authority: kanban-pmo
   observability-stack:
-    local_path: null
+    local_path: /home/tmdev012/observability-stack
     remote_url: git@github.com:tmdev012/observability-stack.git
     branch: main
     env_template: null
     gitignore_profile: python
-    status: remote-only
+    status: active
     role: domain-project
     env_stage: dev
     write_authority: kanban-pmo
   api-marketplace:
-    local_path: null
+    local_path: /home/tmdev012/api-marketplace
     remote_url: git@github.com:tmdev012/api-marketplace.git
     branch: main
     env_template: null
     gitignore_profile: python
-    status: remote-only
+    status: active
     role: domain-project
     env_stage: dev
     write_authority: kanban-pmo
   ml-pipeline:
-    local_path: null
+    local_path: /home/tmdev012/ml-pipeline
     remote_url: git@github.com:tmdev012/ml-pipeline.git
     branch: main
     env_template: null
     gitignore_profile: python
-    status: remote-only
+    status: active
     role: domain-project
     env_stage: dev
     write_authority: kanban-pmo
   devops-pipeline:
-    local_path: null
+    local_path: /home/tmdev012/devops-pipeline
     remote_url: git@github.com:tmdev012/devops-pipeline.git
     branch: main
     env_template: null
     gitignore_profile: python
-    status: remote-only
+    status: active
     role: domain-project
     env_stage: dev
     write_authority: kanban-pmo
