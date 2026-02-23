@@ -1,6 +1,6 @@
 meta:
-  total_known: 25
-  discovered_local: 25
+  total_known: 26
+  discovered_local: 26
   pending_discovery: 0
   updated: '2026-02-23'
   governor_version: 1.0.0
@@ -254,4 +254,14 @@ repos:
     status: active
     role: domain-project
     env_stage: dev
+    write_authority: kanban-pmo
+  github-explorer:
+    local_path: /home/tmdev012/projects/github-explorer
+    remote_url: git@github.com:tmdev012/github-explorer.git
+    branch: main
+    env_template: null
+    gitignore_profile: node
+    status: active
+    role: domain-project
+    env_stage: legacy
     write_authority: kanban-pmo
