@@ -1,0 +1,95 @@
+meta:
+  version: 1.0.0
+  updated: 2026-02-22
+  description: Runner taxonomy — maps labor skills to local execution contexts
+
+runners:
+  board:
+    description: Kanban card lifecycle (create, move, close)
+    skills: [card.create, card.move, card.close]
+    executor: python
+    module: lib.py.board_runner          # stub, implement in B11
+    triggers:
+      - type: push
+        paths: [kanban/*/TASK-*.md]
+    repos: [kanban-pmo]
+    priority: high
+
+  model:
+    description: Modelfile changes + ollama create
+    skills: [model.build]
+    executor: bash
+    cmd: scripts/rebuild-models.sh       # exists in ollama-local
+    triggers:
+      - type: push
+        paths: [Modelfile*]
+    repos: [ollama-local]
+    priority: med
+
+  infra:
+    description: .gitignore, .env, git lock/revert via governor
+    skills: [git.ignore, git.lock, git.revert]
+    executor: python
+    module: lib.py.infra_runner          # stub
+    triggers:
+      - type: push
+        paths: [.gitignore]
+      - type: dispatch
+    repos: all
+    priority: high
+
+  verify:
+    description: shellcheck + VER-XX verification test cases
+    skills: [verify.run]
+    executor: bash
+    cmd: scripts/verify.sh               # stub
+    triggers:
+      - type: dispatch
+    repos: [ollama-local, kanban-pmo]
+    priority: high
+
+  security:
+    description: Credential audit — scan for leaked tokens
+    skills: [cred.audit]
+    executor: python
+    module: lib.py.security_runner       # stub
+    scan_patterns: ['sk-or-', 'ghp_', 'AIza']
+    triggers:
+      - type: push
+      - type: pr
+    repos: all
+    priority: critical
+
+  docs:
+    description: Markdown validation, README version check
+    skills: [doc.sync]
+    executor: python
+    module: lib.py.docs_runner           # stub
+    triggers:
+      - type: push
+        paths: ['*.md', 'kanban/**/*.md']
+    repos: all
+    priority: low
+
+  governance:
+    description: Sprint plan (Mon 8am) + sprint retro (Fri 4pm)
+    skills: [sprint.plan, sprint.retro]
+    executor: python
+    module: lib.py.governance_runner     # stub
+    triggers:
+      - type: schedule
+        cron: [Mon 08:00, Fri 16:00]
+      - type: dispatch
+    repos: [kanban-pmo]
+    priority: med
+
+  probe:
+    description: Cross-repo memory probe sync via gRPC :50052
+    skills: [probe.sync]
+    executor: grpc
+    target: persist-memory-probe:50052
+    rpc: ProbeSync.SyncRepo
+    triggers:
+      - type: dispatch
+    repos: [persist-memory-probe]
+    priority: high
