@@ -1,6 +1,6 @@
 meta:
-  total_known: 21
-  discovered_local: 21
+  total_known: 25
+  discovered_local: 25
   pending_discovery: 0
   updated: '2026-02-23'
   governor_version: 1.0.0
@@ -211,6 +211,46 @@ repos:
     branch: main
     env_template: null
     gitignore_profile: python
+    status: active
+    role: domain-project
+    env_stage: dev
+    write_authority: kanban-pmo
+  invoice-app:
+    local_path: /home/tmdev012/invoice-app
+    remote_url: git@github.com:tmdev012/invoice-app.git
+    branch: main
+    env_template: null
+    gitignore_profile: node
+    status: active
+    role: domain-project
+    env_stage: dev
+    write_authority: kanban-pmo
+  funeral-erd-app:
+    local_path: /home/tmdev012/funeral-erd-app
+    remote_url: git@github.com:tmdev012/funeral-erd-app.git
+    branch: main
+    env_template: null
+    gitignore_profile: python-node
+    status: active
+    role: domain-project
+    env_stage: dev
+    write_authority: kanban-pmo
+  timetrakr-:
+    local_path: /home/tmdev012/projects/timetrakr-
+    remote_url: git@github.com:tmdev012/timetrakr-.git
+    branch: main
+    env_template: null
+    gitignore_profile: node
+    status: active
+    role: domain-project
+    env_stage: dev
+    write_authority: kanban-pmo
+  Calendar_frontend-:
+    local_path: /home/tmdev012/projects/Calendar_frontend-
+    remote_url: git@github.com:tmdev012/Calendar_frontend-.git
+    branch: main
+    env_template: null
+    gitignore_profile: node
     status: active
     role: domain-project
     env_stage: dev
