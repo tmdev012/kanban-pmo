@@ -1,8 +1,8 @@
 meta:
-  total_known: 11
-  discovered_local: 11
+  total_known: 21
+  discovered_local: 13
   pending_discovery: 0
-  updated: '2026-02-19'
+  updated: '2026-02-23'
   governor_version: 1.0.0
 repos:
   kanban-pmo:
@@ -47,10 +47,10 @@ repos:
     write_authority: kanban-pmo
   football-telemetry:
     local_path: /home/tmdev012/football-telemetry
-    remote_url: null
-    branch: unknown
+    remote_url: git@github.com:tmdev012/football-telemetry.git
+    branch: main
     env_template: null
-    gitignore_profile: python
+    gitignore_profile: python-node
     status: active
     role: domain-project
     env_stage: dev
@@ -112,6 +112,106 @@ repos:
     env_template: null
     gitignore_profile: node
     status: active
+    role: domain-project
+    env_stage: dev
+    write_authority: kanban-pmo
+  invoice-app:
+    local_path: /home/tmdev012/invoice-app
+    remote_url: null
+    branch: unknown
+    env_template: null
+    gitignore_profile: node
+    status: local-only
+    role: domain-project
+    env_stage: dev
+    write_authority: kanban-pmo
+  funeral-erd-app:
+    local_path: /home/tmdev012/funeral-erd-app
+    remote_url: null
+    branch: unknown
+    env_template: null
+    gitignore_profile: python-node
+    status: local-only
+    role: domain-project
+    env_stage: dev
+    write_authority: kanban-pmo
+  ai-gateway:
+    local_path: null
+    remote_url: git@github.com:tmdev012/ai-gateway.git
+    branch: main
+    env_template: null
+    gitignore_profile: python
+    status: remote-only
+    role: domain-project
+    env_stage: dev
+    write_authority: kanban-pmo
+  contract-engine:
+    local_path: null
+    remote_url: git@github.com:tmdev012/contract-engine.git
+    branch: main
+    env_template: null
+    gitignore_profile: python
+    status: remote-only
+    role: domain-project
+    env_stage: dev
+    write_authority: kanban-pmo
+  compliance-dashboard:
+    local_path: null
+    remote_url: git@github.com:tmdev012/compliance-dashboard.git
+    branch: main
+    env_template: null
+    gitignore_profile: python
+    status: remote-only
+    role: domain-project
+    env_stage: dev
+    write_authority: kanban-pmo
+  saas-billing:
+    local_path: null
+    remote_url: git@github.com:tmdev012/saas-billing.git
+    branch: main
+    env_template: null
+    gitignore_profile: python
+    status: remote-only
+    role: domain-project
+    env_stage: dev
+    write_authority: kanban-pmo
+  observability-stack:
+    local_path: null
+    remote_url: git@github.com:tmdev012/observability-stack.git
+    branch: main
+    env_template: null
+    gitignore_profile: python
+    status: remote-only
+    role: domain-project
+    env_stage: dev
+    write_authority: kanban-pmo
+  api-marketplace:
+    local_path: null
+    remote_url: git@github.com:tmdev012/api-marketplace.git
+    branch: main
+    env_template: null
+    gitignore_profile: python
+    status: remote-only
+    role: domain-project
+    env_stage: dev
+    write_authority: kanban-pmo
+  ml-pipeline:
+    local_path: null
+    remote_url: git@github.com:tmdev012/ml-pipeline.git
+    branch: main
+    env_template: null
+    gitignore_profile: python
+    status: remote-only
+    role: domain-project
+    env_stage: dev
+    write_authority: kanban-pmo
+  devops-pipeline:
+    local_path: null
+    remote_url: git@github.com:tmdev012/devops-pipeline.git
+    branch: main
+    env_template: null
+    gitignore_profile: python
+    status: remote-only
     role: domain-project
     env_stage: dev
     write_authority: kanban-pmo
