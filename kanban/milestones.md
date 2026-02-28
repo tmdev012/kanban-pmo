@@ -8,8 +8,10 @@
 
 | Sprint | Week | Dates | Milestone | Deliverable |
 |--------|------|-------|-----------|-------------|
-| S01 | W01 | Mar 02 – Mar 08 | **v3.2.0 Ship** | Banner, probe integration, kanban CLI, 8B model |
-| S02 | W02 | Mar 09 – Mar 15 | **Test Scaffold** | pytest structure, sashi smoke tests |
+| S01 | W01 | Feb 22 – Feb 28 | **v3.2.0 Ship** ✅ | Banner, probe integration, kanban CLI, 8B model |
+| S02 | W02 | Mar 01 – Mar 07 | **v3.2.1 + USB/WiFi** 🔄 | USB detect, WiFi ADB, HuggingFace fallback |
+| S03 | W03 | Mar 08 – Mar 14 | **Football App Task1** | football-telemetry completion, MCP tools |
+| S04 | W04 | Mar 15 – Mar 21 | **Test Scaffold** | pytest structure, sashi smoke tests |
 | S03 | W03 | Mar 16 – Mar 22 | **Unit Tests: Core** | sashi CLI commands, ollama run wrapper |
 | S04 | W04 | Mar 23 – Mar 29 | **Unit Tests: Orchestrator** | ai-orchestrator modes, flag parsing |
 | S05 | W05 | Mar 30 – Apr 05 | **OpenRouter Key** | Online fallback live, rate limiting |
@@ -101,10 +103,21 @@ Fri PM: Retro — velocity check, next sprint prep
 
 ## Current Sprint
 
-**Sprint:** S00 (Pre-season — v3.2.0 build)
-**Window:** Feb 17, 2026 → Feb 28, 2026
-**Status:** WIP
-**Goal:** Ship v3.2.0, populate kanban, commit baseline
+**Sprint:** S02 (USB/WiFi + sashi 3.2.1 + Modelfile)
+**Window:** Mar 01 – Mar 07, 2026
+**Status:** IN PROGRESS
+**Goal:** Ship sashi 3.2.1 with USB/WiFi SDK debugging, rebuild models, B13+B14 → closed
+
+| Sprint | Tasks | Goal |
+|--------|-------|------|
+| **S02** (Mar 1-7) | B13 ✅, B14 🔄, B18 | USB/WiFi + sashi 3.2.1 + Modelfile rebuild |
+| **S03** (Mar 8-14) | B16, B12 | HuggingFace polish + football-telemetry task1 |
+| **S04** (Mar 15-21) | B15, B17 | Football task2 + README SVG batch fix |
+| **S05** (Mar 22-28) | B10, B11 | 26-repo structure sync + probe integration |
+
+**Previous Sprint:** S01 (v3.2.0 ship — DONE)
+- Closed: W01-W09 (9 cards), B06-B09 (4 cards)
+- Velocity: 4 cards/sprint
 
 ---
 
