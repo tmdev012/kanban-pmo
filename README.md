@@ -254,9 +254,9 @@ temperature = 0.7
 
 ---
 
-## Sashi v3.2.0 Integration (2026-02-17)
+## Sashi v3.2.2 Integration (updated 2026-03-01)
 
-> Kanban-pmo is now integrated with sashi CLI and ai-orchestrator via shared SQLite DB and file-based board.
+> Kanban-pmo is integrated with sashi CLI and ai-orchestrator via shared SQLite DB and file-based board.
 
 ### Board Structure
 
@@ -264,8 +264,8 @@ temperature = 0.7
 kanban/
 ├── backlog/          # 7 cards — future sprint items
 ├── open/             # 0 cards
-├── wip/              # 2 cards — W06 (openrouter), W07 (docs)
-├── closed/           # 11 cards — verified complete
+├── wip/              # 1 card  — W06 (openrouter key, user action needed)
+├── closed/           # 13 cards — B13, B14 closed 2026-03-01
 ├── labels/           # Label definitions
 ├── tests/            # 12 verification test cases
 ├── exports/          # CSV/JSON board exports
@@ -278,16 +278,18 @@ kanban/
 - **Cadence:** 1-week sprints (tools shape time)
 - **FY:** 2026-27 (Mar 2026 – Feb 2027)
 - **Total:** 52 sprints
-- **Current:** S01 — v3.2.0 shipped, gRPC + probe live
+- **Current:** S02 — v3.2.2 shipped (2026-03-01), USB/WiFi/HF + 30 fs aliases + wallog
 - See: `kanban/milestones.md`
 
 ### CLI Access
 
 ```bash
-# Via sashi
+# Via sashi (v3.2.2)
 sashi kanban board              # Column counts
 sashi kanban state              # Full state (files + DB)
 sashi kanban backlog            # List backlog cards
+sashi wallog [N]                # Modelfile git log + SQL WAL changelog
+swallog                         # Short alias
 
 # Via ai-orchestrator
 ai-orchestrator --kanban board  # Same data, different entry point
@@ -299,15 +301,18 @@ ai-orchestrator --kanban board  # Same data, different entry point
 - Credential gateway: delegates inference to ollama-local, keeps github/sign/remote routes
 - `gatekeeper_3_1_0.sh kanban` delegates to canonical orchestrator
 
-### Shared Shell Libraries
+### Shared Shell Libraries (v3.2.2)
 
 - `ollama-local/lib/sh/banner.sh` — `sashi_banner()` ASCII art, sourced by sashi + ai-orchestrator
-- `ollama-local/lib/sh/aliases.sh` — shell aliases (s8b, skanban, etc.) sourced by all tools
+- `ollama-local/lib/sh/aliases.sh` — 80+ aliases incl. **30 advanced filesystem aliases** (v3.2.2)
+- `ollama-local/lib/sh/usb-monitor.sh` — USB vendor DB + sysfs scanner
+- `ollama-local/lib/sh/wifi-debug.sh` — ADB WiFi library
 
 ### Project Tracking
 
-- `projects/sashi-v3.2.0/tracker.md` — full task breakdown
 - `kanban/milestones.md` — FY2026-27, 52 weekly sprints
+- `docs/diagrams/bdpm-swimlanes.svg` — v3.2.2 governance swimlane
+- `docs/diagrams/gazette-architecture.svg` — v3.2.2 full architecture
 
 ---
 
