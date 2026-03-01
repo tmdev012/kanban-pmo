@@ -49,7 +49,7 @@
 
   <!-- Title -->
   <text x="550" y="38" text-anchor="middle" font-size="20" font-weight="bold" fill="#e6edf3">BDPM Governance Model — 4-Layer Swimlane</text>
-  <text x="550" y="58" text-anchor="middle" font-size="12" fill="#8b949e">kanban-pmo v3.2.0 | Business → Development → Production → Monitoring</text>
+  <text x="550" y="58" text-anchor="middle" font-size="12" fill="#8b949e">kanban-pmo v3.2.2 | Business → Development → Production → Monitoring</text>
 
   <!-- ═══════════════════════════════════════════════ -->
   <!-- SWIMLANE 1: BUSINESS (Blue) -->
@@ -142,7 +142,7 @@
     <rect x="180" y="400" width="160" height="56" rx="8" fill="#21262d" stroke="#a371f7" stroke-width="1.5" filter="url(#shadow)"/>
     <text x="260" y="422" text-anchor="middle" font-size="12" font-weight="bold" fill="#a371f7">sashi CLI</text>
     <text x="260" y="438" text-anchor="middle" font-size="9" fill="#8b949e">ask/code/kanban/8b</text>
-    <text x="260" y="450" text-anchor="middle" font-size="8" fill="#484f58">~/ollama-local/sashi v3.2.0</text>
+    <text x="260" y="450" text-anchor="middle" font-size="8" fill="#484f58">~/ollama-local/sashi v3.2.2</text>
   </g>
   <g class="node">
     <rect x="390" y="400" width="160" height="56" rx="8" fill="#21262d" stroke="#a371f7" stroke-width="1.5" filter="url(#shadow)"/>
@@ -231,7 +231,7 @@
   <!-- FOOTER -->
   <!-- ═══════════════════════════════════════════════ -->
   <line x1="30" y1="660" x2="1070" y2="660" stroke="#21262d" stroke-width="1"/>
-  <text x="550" y="682" text-anchor="middle" font-size="10" fill="#8b949e">kanban-pmo v3.2.0 | i7-6500U 2C/4T 7.6GB RAM | fast-sashi 3B ~4.0 tok/s | sashi-llama-8b 8B ~3.7 tok/s | OFFLINE_MODE=true</text>
+  <text x="550" y="682" text-anchor="middle" font-size="10" fill="#8b949e">kanban-pmo v3.2.2 | i7-6500U 2C/4T 7.6GB RAM | fast-sashi 3B ~4.0 tok/s | sashi-llama-8b 8B ~3.7 tok/s | OFFLINE_MODE=true</text>
   <text x="550" y="700" text-anchor="middle" font-size="9" fill="#484f58">Updated 2026-02-19 | BDPM = Business, Development, Production, Monitoring</text>
 
 </svg>

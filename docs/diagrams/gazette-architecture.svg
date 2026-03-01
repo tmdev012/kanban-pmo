@@ -48,7 +48,7 @@
   <!-- sashi CLI -->
   <g class="node">
     <rect x="50" y="130" width="280" height="64" rx="8" fill="#21262d" stroke="#56d4dd" stroke-width="1.5" filter="url(#shadow)"/>
-    <text x="190" y="150" text-anchor="middle" font-size="12" font-weight="bold" fill="#56d4dd">sashi CLI v3.2.0</text>
+    <text x="190" y="150" text-anchor="middle" font-size="12" font-weight="bold" fill="#56d4dd">sashi CLI v3.2.2</text>
     <text x="190" y="165" text-anchor="middle" font-size="9" fill="#8b949e">ask • code • chat • 8b • kanban • write</text>
     <text x="190" y="180" text-anchor="middle" font-size="8" fill="#484f58">~/ollama-local/sashi  |  aliases: s, s8b, skanban</text>
   </g>
@@ -56,7 +56,7 @@
   <!-- ai-orchestrator -->
   <g class="node">
     <rect x="50" y="210" width="280" height="64" rx="8" fill="#21262d" stroke="#56d4dd" stroke-width="1.5" filter="url(#shadow)"/>
-    <text x="190" y="230" text-anchor="middle" font-size="12" font-weight="bold" fill="#56d4dd">ai-orchestrator v3.2.0</text>
+    <text x="190" y="230" text-anchor="middle" font-size="12" font-weight="bold" fill="#56d4dd">ai-orchestrator v3.2.2</text>
     <text x="190" y="245" text-anchor="middle" font-size="9" fill="#8b949e">--ask • --kanban • --write • --model 8b</text>
     <text x="190" y="260" text-anchor="middle" font-size="8" fill="#484f58">mcp/llama/tools/ai-orchestrator</text>
   </g>
@@ -201,7 +201,7 @@
     <rect x="770" y="130" width="280" height="64" rx="8" fill="#21262d" stroke="#d29922" stroke-width="1.5" filter="url(#shadow)"/>
     <text x="910" y="150" text-anchor="middle" font-size="12" font-weight="bold" fill="#d29922">gatekeeper_3_1_0.sh</text>
     <text x="910" y="165" text-anchor="middle" font-size="9" fill="#8b949e">github • sign • remote • ollama → delegate</text>
-    <text x="910" y="180" text-anchor="middle" font-size="8" fill="#484f58">lib/sh/gatekeeper_3_1_0.sh  |  v3.2.0</text>
+    <text x="910" y="180" text-anchor="middle" font-size="8" fill="#484f58">lib/sh/gatekeeper_3_1_0.sh  |  v3.2.2</text>
   </g>
 
   <!-- repo_tracker + fs_writer -->
