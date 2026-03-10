@@ -254,7 +254,7 @@ temperature = 0.7
 
 ---
 
-## Sashi v3.2.2 Integration (updated 2026-03-01)
+## Sashi v3.2.3 Integration (updated 2026-03-01)
 
 > Kanban-pmo is integrated with sashi CLI and ai-orchestrator via shared SQLite DB and file-based board.
 
@@ -278,13 +278,13 @@ kanban/
 - **Cadence:** 1-week sprints (tools shape time)
 - **FY:** 2026-27 (Mar 2026 – Feb 2027)
 - **Total:** 52 sprints
-- **Current:** S02 — v3.2.2 shipped (2026-03-01), USB/WiFi/HF + 30 fs aliases + wallog
+- **Current:** S02 — v3.2.3 shipped (2026-03-01), USB/WiFi/HF + 30 fs aliases + wallog
 - See: `kanban/milestones.md`
 
 ### CLI Access
 
 ```bash
-# Via sashi (v3.2.2)
+# Via sashi (v3.2.3)
 sashi kanban board              # Column counts
 sashi kanban state              # Full state (files + DB)
 sashi kanban backlog            # List backlog cards
@@ -301,18 +301,18 @@ ai-orchestrator --kanban board  # Same data, different entry point
 - Credential gateway: delegates inference to ollama-local, keeps github/sign/remote routes
 - `gatekeeper_3_1_0.sh kanban` delegates to canonical orchestrator
 
-### Shared Shell Libraries (v3.2.2)
+### Shared Shell Libraries (v3.2.3)
 
 - `ollama-local/lib/sh/banner.sh` — `sashi_banner()` ASCII art, sourced by sashi + ai-orchestrator
-- `ollama-local/lib/sh/aliases.sh` — 80+ aliases incl. **30 advanced filesystem aliases** (v3.2.2)
+- `ollama-local/lib/sh/aliases.sh` — 80+ aliases incl. **30 advanced filesystem aliases** (v3.2.3)
 - `ollama-local/lib/sh/usb-monitor.sh` — USB vendor DB + sysfs scanner
 - `ollama-local/lib/sh/wifi-debug.sh` — ADB WiFi library
 
 ### Project Tracking
 
 - `kanban/milestones.md` — FY2026-27, 52 weekly sprints
-- `docs/diagrams/bdpm-swimlanes.svg` — v3.2.2 governance swimlane
-- `docs/diagrams/kanban-architecture.svg` — v3.2.2 full architecture
+- `docs/diagrams/bdpm-swimlanes.svg — v3.2.3 governance swimlane
+- `docs/diagrams/kanban-architecture.svg — v3.2.3 full architecture
 
 ---
 
@@ -322,4 +322,4 @@ MIT
 
 ---
 
-*Scaffolded with Claude Code - Feb 2026 | Last updated: 2026-02-22 | Version: 3.2.0*
+*Scaffolded with Claude Code - Feb 2026 | Last updated: 2026-03-11 | Version: 3.2.3*
