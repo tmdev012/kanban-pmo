@@ -25,9 +25,9 @@ See: [`docs/MANIFESTO.md`](docs/MANIFESTO.md) — Core principles, BDPM model, i
 
 > 4-layer governance: **B**usiness (kanban intake, sprint planning) → **D**evelopment (git, model build, test, smart-push) → **P**roduction (gRPC dispatch, ollama inference, file write, DB log) → **M**onitoring (cred audit, health check, doc sync, CMMI compliance). Cross-lane arrows show event triggers between layers.
 
-### Gazette Architecture
+### Kanban Architecture
 
-![Gazette Architecture](docs/diagrams/gazette-architecture.svg)
+![Kanban Architecture](docs/diagrams/kanban-architecture.svg)
 
 ---
 
@@ -35,7 +35,7 @@ See: [`docs/MANIFESTO.md`](docs/MANIFESTO.md) — Core principles, BDPM model, i
 
 | Component | Description | Status |
 |-----------|-------------|--------|
-| **CLI** | `gazette` command replacing bash aliases | WIP |
+| **CLI** | `sashi` CLI replacing bash aliases | WIP |
 | **API** | FastAPI with rate limiting | WIP |
 | **PAT** | Personal Access Token management | WIP |
 | **SmartDoc** | Document generation with anonymization | WIP |
@@ -65,30 +65,30 @@ docker-compose up -d
 
 ```bash
 # AI queries
-gazette ask "explain this code"
-gazette code "write a sorting function"
+sashi ask "explain this code"
+sashi code "write a sorting function"
 
 # Document generation
-gazette doc init "Project Name"
-gazette doc tech --from-commits HEAD~5
-gazette doc qm --sprint 12
+sashi write init "Project Name"
+sashi write tech --from-commits HEAD~5
+sashi write qm --sprint 12
 
 # Git pipeline
-gazette push "commit message"
-gazette push --version v1.0.0
+smartpush "commit message"
+smartpush --version v1.0.0
 
 # Kanban
-gazette board show
-gazette board add "New task" --priority high
-gazette board export --format csv
+sashi kanban board
+sashi kanban open "New task" --priority high
+sashi probe export --format csv
 
 # Auth
-gazette auth add github --name cli-token
-gazette auth limits
+sashi probe recommend push code
+sashi probe recommend
 
 # Training
-gazette training export --format jsonl
-gazette training inject --last 50
+sashi probe export --format jsonl
+sashi write --append --last 50
 ```
 
 ---
@@ -96,7 +96,7 @@ gazette training inject --last 50
 ## Directory Structure
 
 ```
-gazette-support-mcp-framework/
+kanban-pmo/
 ├── api/                    # FastAPI REST endpoints
 │   ├── routes/
 │   ├── middleware/         # Rate limiting
@@ -105,7 +105,7 @@ gazette-support-mcp-framework/
 │   ├── pat/                # Personal Access Tokens
 │   ├── oauth/              # GitHub, Google OAuth
 │   └── keys/               # SSH, GPG (not committed)
-├── cli/                    # Python CLI (gazette)
+├── cli/                    # gRPC server (kanban-pmo)
 │   ├── commands/
 │   └── utils/
 ├── db/                     # SQLite databases
@@ -206,10 +206,10 @@ Bidirectional sync between Linux desktop and Android/Termux:
 
 ```bash
 # Push to mobile
-gazette sync push
+termux-sync push
 
 # Pull from mobile
-gazette sync pull
+termux-sync pull
 
 # Synced files
 ~/.bashrc
@@ -312,7 +312,7 @@ ai-orchestrator --kanban board  # Same data, different entry point
 
 - `kanban/milestones.md` — FY2026-27, 52 weekly sprints
 - `docs/diagrams/bdpm-swimlanes.svg` — v3.2.2 governance swimlane
-- `docs/diagrams/gazette-architecture.svg` — v3.2.2 full architecture
+- `docs/diagrams/kanban-architecture.svg` — v3.2.2 full architecture
 
 ---
 
